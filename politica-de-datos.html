@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>LUMMA CLUB | Política de Tratamiento de Datos Personales</title>
+	<meta name="description" content="Política de Tratamiento de Datos Personales de LUMMA CLUB.">
+
+	<meta name="description"
+		content="LUMMA CLUB es su socio estratégico para la transformación cultural digital. Implementamos el Método IMCAC 360° para optimizar Microsoft 365, garantizar la trazabilidad documental, auditoría y eliminar el caos comunicativo en PYMES y evite no conformidades en auditorías.">
+	<meta name="keywords"
+		content="LUMMA CLUB, IMCAC 360°, comunicación asincrónica profesional, transformación cultural digital, trazabilidad documental, evidencia, optimización de procesos de comunicación, eliminar caos digital, pérdida de evidencia auditoría, no conformidades gestión documental, problemas auditoría ISO 27001, optimizar Microsoft 365 para pymes, consultoría trazabilidad documental, problemas comunicación interna pymes, caos comunicación interna, mejorar colaboración equipos remotos">
+	<meta name="author" content="LUMMA CLUB">
+	
+	<!-- Open Graph (para redes sociales) -->
+	<meta property="og:title" content="LUMMA CLUB | Liderando la Transformación Digital de su Empresa">
+	<meta property="og:description"
+		content="Descubra cómo LUMMA CLUB, con el método IMCAC 360°, optimiza su comunicación transformamos su caos en Microsoft 365 en evidencia lista para auditorías.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.lummaclub.com"> <!-- Asume una URL, cámbiala si es necesario -->
+	<meta property="og:image" content="https://raw.githubusercontent.com/LumaClub/brand-assets/main/logo-lumma-club.svg">
+	<!-- Ruta a tu logo para Open Graph -->
+	
+	<!-- Favicon -->
+	<link rel="icon" href="https://raw.githubusercontent.com/LumaClub/brand-assets/main/logo-icon-lumma-club.svg">
+	<!-- Usando tu logo como favicon -->
+	
+	<!-- Tailwind CSS CDN (v3.4.1) -->
+	<script src="https://cdn.tailwindcss.com"></script>
+	
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+		rel="stylesheet">
+	
+	<!-- Estilos Personalizados (Branding LUMMA CLUB) -->
+	<style>
+		:root {
+			--fondo-principal: #1a1a1a;
+			--fondo-claro: #fcfcfc;
+			/* Un blanco muy suave */
+			--texto-oscuro: #1a1a1a;
+			--dorado-lumma: #E9A93B;
+			--gris-texto: #cccccc;
+			--blanco-puro: #FFFFFF;
+			--gris-oscuro-claro: #2c2c2c;
+		}
+	
+		body {
+			background-color: var(--fondo-principal);
+			/* color: var(--gris-texto); */
+			font-family: 'IBM Plex Sans', sans-serif;
+		}
+	
+		/* Tipografía de Marca */
+		h1,
+		h2,
+		h3,
+		.font-heading {
+			font-family: 'Playfair Display', serif;
+			font-weight: 700;
+		}
+	
+		.font-body {
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-weight: 400;
+		}
+	
+		/* Estilos para Secciones Claras (Contraste) */
+		.section-light {
+			background-color: var(--fondo-claro);
+			color: var(--texto-oscuro);
+		}
+	
+		.section-light h1,
+		.section-light h2,
+		.section-light h3,
+		.section-light .font-heading {
+			color: var(--texto-oscuro);
+		}
+	
+		.section-light .font-body {
+			color: #333;
+		}
+	
+		.section-light .check-icon {
+			color: var(--dorado-lumma);
+		}
+	
+		/* Color de Acento */
+		.text-dorado {
+			color: var(--dorado-lumma);
+		}
+	
+		.bg-dorado {
+			background-color: var(--dorado-lumma);
+		}
+	
+		.border-dorado {
+			border-color: var(--dorado-lumma);
+		}
+	
+		/* Hero Video */
+		#hero {
+			position: relative;
+			height: 100vh;
+			overflow: hidden;
+		}
+	
+		#hero-video {
+			position: absolute;
+			/* Lo mantiene en el fondo */
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			object-fit: cover;
+			/* Mantiene la proporción y cubre el área sin distorsionar */
+			filter: brightness(0.7) opacity(0.5);
+			/* Efecto aún más transparente y luminoso */
+		}
+	
+		#hero-content {
+			position: relative;
+			z-index: 1;
+			background: linear-gradient(to top, var(--fondo-principal) 0%, rgba(26, 26, 26, 0.7) 50%, rgba(26, 26, 26, 0.1) 100%);
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	
+		/* Estilo base del header (GRANDE) */
+		#navbar {
+			transition: all 0.3s ease-in-out;
+			/* padding-top: 1.5rem; (py-6) */
+			/* padding-bottom: 1.5rem; (py-6) */
+		}
+	
+		/* Estilo del header al hacer scroll (PEQUEÑO) */
+		#navbar.scrolled {
+			padding-top: 0.75rem;
+			/* py-3 */
+			padding-bottom: 0.75rem;
+			/* py-3 */
+			background-color: rgba(26, 26, 26, 0.95);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.3);
+		}
+	
+		/* Estilo del logo al hacer scroll (PEQUEÑO) */
+		#navbar.scrolled img {
+			height: 3rem;
+			/* h-12 (48px) */
+		}
+	
+		/* Estilos para los enlaces de navegación (GRANDE) */
+		.nav-links a {
+			font-size: 1.425rem;
+			/* text-lg */
+			letter-spacing: 0.05em;
+			/* tracking-wider */
+			transition: font-size 0.3s ease-in-out, letter-spacing 0.3s ease-in-out;
+		}
+	
+		/* Estilos de los enlaces al hacer scroll (PEQUEÑO) */
+		#navbar.scrolled .nav-links a {
+			font-size: 0.875rem;
+			/* text-sm */
+			letter-spacing: 0.025em;
+			/* tracking-wide */
+		}
+	
+	
+		/* Botón Principal (CTA) */
+		.cta-button {
+			background-color: var(--dorado-lumma);
+			color: var(--fondo-principal);
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			padding: 0.8rem 2.2rem;
+			border-radius: 6px;
+			transition: all 0.3s ease;
+			display: inline-block;
+			/* Asegura el comportamiento de bloque */
+			text-align: center;
+			/* Centra el texto explícitamente */
+			box-shadow: 0 4px 20px -5px rgba(233, 169, 59, 0.5);
+		}
+	
+		.cta-button:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 25px -5px rgba(233, 169, 59, 0.7);
+		}
+	
+		/* Botón Secundario (para fondos claros) */
+		.cta-button-dark {
+			background-color: var(--fondo-principal);
+			color: var(--blanco-puro);
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			padding: 0.8rem 2.2rem;
+			border-radius: 6px;
+			transition: all 0.3s ease;
+			display: inline-block;
+			/* Asegura el comportamiento de bloque */
+			text-align: center;
+			/* Centra el texto explícitamente */
+			box-shadow: 0 4px 20px -5px rgba(26, 26, 26, 0.3);
+		}
+	
+		.cta-button-dark:hover {
+			transform: translateY(-3px);
+			background-color: #333;
+			box-shadow: 0 8px 25px -5px rgba(26, 26, 26, 0.5);
+		}
+	
+		/* Formulario y Encuesta */
+		.form-input,
+		.survey-question,
+		.radio-label {
+			background-color: var(--gris-oscuro-claro);
+			border: 1px solid #444;
+			color: var(--blanco-puro);
+			border-radius: 8px;
+			/* Más suave: rounded-lg */
+			padding: 0.85rem 1rem;
+			transition: all 0.3s ease;
+		}
+	
+		.form-input:focus,
+		.survey-question:focus-within {
+			outline: none;
+			border-color: var(--dorado-lumma);
+			box-shadow: 0 0 0 3px rgba(233, 169, 59, 0.4);
+		}
+	
+		.radio-label:hover {
+			background-color: #3a3a3a;
+		}
+	
+		input[type="radio"]:checked+.radio-label {
+			background-color: var(--dorado-lumma);
+			border-color: var(--dorado-lumma);
+			color: var(--fondo-principal);
+			font-weight: 600;
+			box-shadow: 0 0 12px rgba(233, 169, 59, 0.7);
+		}
+	
+		/* Formulario en fondo claro */
+		.section-light .form-input {
+			background-color: #f0f0f0;
+			border: 1px solid #ccc;
+			color: var(--texto-oscuro);
+		}
+	
+		.section-light .form-input:focus {
+			background-color: var(--blanco-puro);
+			border-color: var(--dorado-lumma);
+			box-shadow: 0 0 0 3px rgba(233, 169, 59, 0.4);
+		}
+	
+		/* Iconos de Check */
+		.check-icon {
+			color: var(--dorado-lumma);
+			font-size: 1.5rem;
+			line-height: 1;
+		}
+
+/* Estilos específicos para la página de política */
+		.policy-container {
+			max-width: 800px;
+			margin: 2rem auto;
+			padding: 2rem;
+			background-color: var(--blanco-puro);
+			border-radius: 8px;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+		}
+
+		.policy-container h1 {
+			font-size: 2.5rem;
+			/* 40px */
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+
+		.policy-container h2 {
+			font-size: 1.5rem;
+			/* 24px */
+			color: var(--dorado-lumma);
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+			border-bottom: 2px solid var(--dorado-lumma);
+			padding-bottom: 0.5rem;
+		}
+
+		.policy-container p,
+		.policy-container ul {
+			font-size: 1rem;
+			/* 16px */
+			line-height: 1.7;
+			margin-bottom: 1rem;
+		}
+
+		.policy-container ul {
+			list-style-type: disc;
+			padding-left: 1.5rem;
+		}
+
+		.policy-container li {
+			margin-bottom: 0.5rem;
+		}
+
+		.policy-container a {
+			color: var(--dorado-lumma);
+			text-decoration: underline;
+		}
+	
+	
+		/* Ajuste para anclas de navegación con header fijo */
+		section[id] {
+			scroll-margin-top: 120px;
+			/* Ajusta este valor según la altura de tu header */
+		}
+	
+		/* ==== INICIO: AJUSTES PARA MÓVIL (CORREGIDO) ==== */
+		@media (max-width: 767px) {
+			/* Se aplica a pantallas más pequeñas que 'md' (768px) */
+	
+			/* 1. Centrar el logo en el header */
+			#navbar nav {
+				position: relative;
+				/* Necesario para posicionar el botón hamburguesa */
+	
+			}
+	
+			/* 2. Reposicionar el menú hamburguesa AL EXTREMO DERECHO */
+			header#navbar nav div.md\\:hidden {
+				/* Selector más específico */
+				position: absolute !important;
+				/* Saca el botón del flujo normal */
+				top: 50%;
+				right: 1.5rem;
+				/* Corresponde al 'px-6' del nav */
+				transform: translateY(-50%);
+				/* Centra verticalmente el botón */
+			}
+	
+			/* 3. Ajustar el tamaño del logo en móvil */
+			#navbar:not(.scrolled) nav a img {
+				height: 4.5rem !important;
+				/* h-18. Anula el h-24 */
+			}
+	
+			/* 4. Ajustar el tamaño del logo al hacer scroll */
+			/* Este ya está correcto y no necesita !important si el de arriba es más específico */
+			#navbar.scrolled nav a img {
+				height: 3rem !important;
+				/* h-12. Mantiene la consistencia */
+			}
+	
+			/* 5. Empujar el contenido "Hero" (subtítulo) hacia abajo */
+			#hero-content {
+				padding-top: 10rem !important;
+				padding-bottom: 2rem !important;
+			}
+	
+			/* 6. Ajustar el botón "Comience su Transformación" en móvil */
+			#hero-content .cta-button {
+				margin-top: 4rem !important;
+				/* Reduce el 'mt-32' original */
+			}
+	
+			/* 7. Poner el fondo del menú desplegable NEGRO OPACO */
+			#mobile-menu {
+				background-color: var(--fondo-principal) !important;
+				/* Usa el color #1a1a1a */
+				backdrop-filter: none !important;
+				/* Quita el efecto 'blur' */
+			}
+	
+			
+		}
+	
+		/* ==== FIN: AJUSTES PARA MÓVIL ==== */
+	</style>
+	<style>
+		
+		
+	</style>
+</head>
+
+<body class="font-body">
+
+	<header class="bg-fondo-principal shadow-lg">
+		<nav class="container mx-auto max-w-7xl px-6 py-4 flex justify-between items-center">
+			<a href="index.html" class="flex items-center space-x-2">
+				<img src="img/logo_lummaclub_2.png" alt="LUMMA CLUB Logo" class="h-12 w-auto">
+			</a>
+			<a href="index.html"
+				class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">
+				&larr; Volver al inicio
+			</a>
+		</nav>
+	</header>
+
+	<main>
+		<div class="policy-container font-body">
+			<h1 class="font-heading">Política de Tratamiento de Datos Personales</h1>
+<br><h1><strong>LUMMA <span class="text-dorado">CLUB</span></strong></h1>
+			<p>Fecha de última actualización: 8 de noviembre de 2025</p>
+
+			<p>
+				De conformidad con lo dispuesto en la Ley 1581 de 2012 y el Decreto 1377 de 2013, <strong>LUMMA CLUB</strong>
+				(en adelante, "EL RESPONSABLE"), con domicilio en Medellín, Colombia, y correo electrónico <a
+					href="mailto:contacto@lummaclub.com">contacto@lummaclub.com</a>, adopta la presente política para el
+				tratamiento de datos personales.
+			</p>
+
+			<h2>1. Objeto y Alcance</h2>
+			<p>
+				Esta política aplica para todos los datos personales registrados en las bases de datos de EL RESPONSABLE, quien
+				actúa en calidad de Responsable del Tratamiento de los Datos Personales.
+			</p>
+
+			<h2>2. Finalidades del Tratamiento</h2>
+			<p>
+				Los datos personales que EL RESPONSABLE recolecta y almacena serán utilizados para las siguientes finalidades:
+			</p>
+			<ul>
+				<li>Establecer comunicación con el Titular para responder a sus solicitudes, cotizaciones, preguntas o
+					comentarios.</li>
+				<li>Prestar los servicios de consultoría y transformación digital ofrecidos por LUMMA CLUB.</li>
+				<li>Enviar información comercial, publicitaria o promocional sobre nuestros servicios, eventos o contenidos que
+					consideremos de su interés.</li>
+				<li>Evaluar la calidad de nuestros servicios y realizar estudios internos sobre hábitos de consumo y
+					comportamiento.</li>
+				<li>Realizar análisis estadísticos y de comportamiento de navegación web a través de herramientas de terceros.
+				</li>
+				<li>Cumplir con las obligaciones legales y contractuales.</li>
+			</ul>
+
+			<h2>3. Tratamiento de Datos de Menores de Edad</h2>
+			<p>
+				Nuestros servicios y el contenido de nuestro sitio web <strong>no están dirigidos a menores de 18 años</strong>.
+				EL RESPONSABLE no tiene la intención de recolectar ni tratar datos personales de menores de edad.
+			</p>
+			<p>
+				Si usted es padre de familia o tutor legal y tiene conocimiento de que un menor de edad nos ha proporcionado sus
+				datos personales sin su autorización, le solicitamos que se comunique con nosotros a través del correo <a
+					href="mailto:contacto@lummaclub.com">contacto@lummaclub.com</a> para solicitar la supresión de dichos datos.
+			</p>
+
+			<h2>4. Transferencia Internacional de Datos</h2>
+			<p>
+				Al aceptar esta política, el Titular autoriza expresamente a EL RESPONSABLE para realizar la transferencia y
+				transmisión internacional de sus datos personales a terceros proveedores de servicios y software que actúan como
+				Encargados del Tratamiento.
+			</p>
+			<p>
+				Estos servicios incluyen, pero no se limitan a:
+			</p>
+			<ul>
+				<li><strong>Servicios de Alojamiento Web (Hosting):</strong> Nuestros servidores web pueden estar ubicados en
+					centros de datos fuera de Colombia.</li>
+				<li><strong>Software en la Nube y Almacenamiento:</strong> Utilizamos plataformas de gestión de proyectos, CRM y
+					almacenamiento en la nube (ej. Microsoft 365, Google Workspace) cuyos servidores pueden estar en el
+					extranjero.</li>
+				<li><strong>Analítica Web:</strong> Usamos herramientas como <strong>Google Analytics</strong> para analizar el
+					tráfico y comportamiento de los usuarios en nuestro sitio web. Google opera servidores a nivel global.</li>
+				<li><strong>Plataformas de Email Marketing:</strong> Para el envío de comunicaciones, podemos usar proveedores
+					cuyos servidores se encuentren fuera del país.</li>
+			</ul>
+			<p>
+				EL RESPONSABLE garantiza que estos proveedores ofrecen estándares adecuados de protección de datos y que el
+				tratamiento se limitará a las finalidades aquí autorizadas.
+			</p>
+
+			<h2>5. Derechos del Titular</h2>
+			<p>
+				Como Titular de sus datos personales, usted tiene derecho a:
+			</p>
+			<ul>
+				<li>Conocer, actualizar y rectificar sus datos personales.</li>
+				<li>Solicitar prueba de la autorización otorgada.</li>
+				<li>Ser informado sobre el uso que se le ha dado a sus datos.</li>
+				<li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</li>
+				<li>Revocar la autorización y/o solicitar la supresión de sus datos, siempre y cuando no exista un deber legal o
+					contractual de permanecer en la base de datos.</li>
+				<li>Acceder de forma gratuita a sus datos personales.</li>
+			</ul>
+
+			<h2>6. Canales de Atención</h2>
+			<p>
+				Para ejercer cualquiera de sus derechos como Titular, puede enviar una solicitud formal al correo electrónico:
+				<a href="mailto:contacto@lummaclub.com">contacto@lummaclub.com</a>, indicando claramente su solicitud y sus
+				datos de identificación.
+			</p>
+
+			<h2>7. Vigencia</h2>
+			<p>
+				La presente política rige a partir de su publicación. Las bases de datos tendrán una vigencia igual al período
+				en que se mantengan las finalidades para las cuales fueron recolectados los datos, o hasta que el Titular
+				solicite su supresión y no exista un deber legal de conservarlos.
+			</p>
+
+		</div>
+	</main>
+
+		<!-- ==== FOOTER ==== -->
+		<footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+			<div class="container mx-auto max-w-7xl px-6">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+		
+					<!-- Columna 1: Logo y Descripción -->
+					<div class="space-y-4 flex flex-col items-center md:items-start">
+						<a href="#inicio">
+							<img src="img/logo_lummaclub_2.png" alt="LUMMA CLUB Logo" class="h-20 mb-2">
+						</a>
+						<p class="font-body text-sm text-center md:text-left">
+							Transformamos el caos comunicativo en claridad operativa, garantizando trazabilidad y eficiencia para su
+							empresa.
+						</p>
+					</div>
+		
+					<!-- Columna 2: Navegación -->
+					<div>
+						<h3 class="font-heading text-base font-semibold text-white tracking-wider">Navegación</h3>
+						<ul class="mt-4 space-y-2">
+							<li><a href="#inicio" class="hover:text-dorado transition-colors">El inicio</a></li>
+							<li><a href="#problema" class="hover:text-dorado transition-colors">El reto</a></li>
+							<li><a href="#solucion" class="hover:text-dorado transition-colors">Método <strong>IMCAC 360°</strong></a>
+							</li>
+							<li><a href="#mini-imcac" class="hover:text-dorado transition-colors">Mini diagnóstico</a></li>
+							<li><a href="#contacto" class="hover:text-dorado transition-colors">Contacto</a></li>
+						</ul>
+					</div>
+		
+					<!-- Columna 3: Contacto -->
+					<div>
+						<h3 class="font-heading text-base font-semibold text-white tracking-wider">Contacto</h3>
+						<ul class="mt-4 space-y-2">
+							<li><a href="mailto:contacto@lummaclub.com"
+									class="hover:text-dorado transition-colors">contacto@lummaclub.com</a></li>
+							<li>
+								<p>Medellín, Colombia</p>
+							</li>
+						</ul>
+					</div>
+		
+					<!-- Columna 4:  -->
+					<div>
+						<h3 class="font-heading text-base font-semibold text-white tracking-wider">Legal</h3>
+						<ul class="mt-4 space-y-2">
+							<li><a href="politica-de-datos.html" class="hover:text-dorado transition-colors" target="_blank">Política de
+									privacidad</a></li>
+							<li><a href="#" class="hover:text-dorado transition-colors">Términos de servicio</a></li>
+							<li><a href="#" class="hover:text-dorado transition-colors">PQRS</a></li>
+						</ul>
+					</div>
+				</div>
+		
+				<!-- Línea divisoria y Copyright -->
+				<div class="border-t border-gray-800 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center">
+					<p class="font-body text-sm text-gray-500 order-2 sm:order-1 mt-4 sm:mt-0">
+						© 2025 <strong>LUMMA CLUB</strong>. Todos los derechos reservados.
+					</p>
+					<div class="flex space-x-4 order-1 sm:order-2">
+						<a href="#" class="text-gray-400 hover:text-dorado transition-colors" aria-label="LinkedIn">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+</body>
+
+</html>

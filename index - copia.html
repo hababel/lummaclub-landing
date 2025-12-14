@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Metaetiquetas SEO -->
+	<title>LUMMA CLUB | Transformación digital, trazabilidad documental y comunicación asincrónica</title>
+	<meta name="description"
+		content="LUMMA CLUB es su socio estratégico para la transformación cultural digital. Implementamos el Método IMCAC 360° para optimizar Microsoft 365, garantizar la trazabilidad documental, auditoría y eliminar el caos comunicativo en PYMES y evite no conformidades en auditorías.">
+	<meta name="keywords"
+		content="LUMMA CLUB, IMCAC 360°, comunicación asincrónica profesional, transformación cultural digital, trazabilidad documental, evidencia, optimización de procesos de comunicación, eliminar caos digital, pérdida de evidencia auditoría, no conformidades gestión documental, problemas auditoría ISO 27001, optimizar Microsoft 365 para pymes, consultoría trazabilidad documental, problemas comunicación interna pymes, caos comunicación interna, mejorar colaboración equipos remotos">
+	<meta name="author" content="LUMMA CLUB">
+
+	<!-- Open Graph (para redes sociales) -->
+	<meta property="og:title" content="LUMMA CLUB | Liderando la Transformación Digital de su Empresa">
+	<meta property="og:description"
+		content="Descubra cómo LUMMA CLUB, con el método IMCAC 360°, optimiza su comunicación transformamos su caos en Microsoft 365 en evidencia lista para auditorías.">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.lummaclub.com"> <!-- Asume una URL, cámbiala si es necesario -->
+	<meta property="og:image" content="https://raw.githubusercontent.com/LumaClub/brand-assets/main/logo-lumma-club.svg">
+	<!-- Ruta a tu logo para Open Graph -->
+
+	<!-- Favicon -->
+	<link rel="icon" href="https://raw.githubusercontent.com/LumaClub/brand-assets/main/logo-icon-lumma-club.svg">
+	<!-- Usando tu logo como favicon -->
+
+	<!-- Tailwind CSS CDN (v3.4.1) -->
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+		rel="stylesheet">
+
+	<!-- Estilos Personalizados (Branding LUMMA CLUB) -->
+	<style>
+		:root {
+			--fondo-principal: #1a1a1a;
+			--fondo-claro: #fcfcfc;
+			/* Un blanco muy suave */
+			--texto-oscuro: #1a1a1a;
+			--dorado-lumma: #E9A93B;
+			--gris-texto: #cccccc;
+			--blanco-puro: #FFFFFF;
+			--gris-oscuro-claro: #2c2c2c;
+		}
+
+		body {
+			background-color: var(--fondo-principal);
+			color: var(--gris-texto);
+			font-family: 'IBM Plex Sans', sans-serif;
+			overflow-x: hidden;
+		}
+
+		/* Tipografía de Marca */
+		h1,
+		h2,
+		h3,
+		.font-heading {
+			font-family: 'Playfair Display', serif;
+			font-weight: 700;
+			color: var(--blanco-puro);
+		}
+
+		.font-body {
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-weight: 400;
+		}
+
+		/* Estilos para Secciones Claras (Contraste) */
+		.section-light {
+			background-color: var(--fondo-claro);
+			color: var(--texto-oscuro);
+		}
+
+		.section-light h1,
+		.section-light h2,
+		.section-light h3,
+		.section-light .font-heading {
+			color: var(--texto-oscuro);
+		}
+
+		.section-light .font-body {
+			color: #333;
+		}
+
+		.section-light .check-icon {
+			color: var(--dorado-lumma);
+		}
+
+		/* Color de Acento */
+		.text-dorado {
+			color: var(--dorado-lumma);
+		}
+
+		.bg-dorado {
+			background-color: var(--dorado-lumma);
+		}
+
+		.border-dorado {
+			border-color: var(--dorado-lumma);
+		}
+
+		/* Hero Video */
+		#hero {
+			position: relative;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		#hero-video {
+			position: absolute;
+			/* Lo mantiene en el fondo */
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			object-fit: cover;
+			/* Mantiene la proporción y cubre el área sin distorsionar */
+			filter: brightness(0.7) opacity(0.5);
+			/* Efecto aún más transparente y luminoso */
+		}
+
+		#hero-content {
+			position: relative;
+			z-index: 1;
+			background: linear-gradient(to top, var(--fondo-principal) 0%, rgba(26, 26, 26, 0.7) 50%, rgba(26, 26, 26, 0.1) 100%);
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		/* Estilo base del header (GRANDE) */
+		#navbar {
+			transition: all 0.3s ease-in-out;
+			/* padding-top: 1.5rem; (py-6) */
+			/* padding-bottom: 1.5rem; (py-6) */
+		}
+
+		/* Estilo del header al hacer scroll (PEQUEÑO) */
+		#navbar.scrolled {
+			padding-top: 0.75rem;
+			/* py-3 */
+			padding-bottom: 0.75rem;
+			/* py-3 */
+			background-color: rgba(26, 26, 26, 0.95);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.3);
+		}
+
+		/* Estilo del logo al hacer scroll (PEQUEÑO) */
+		#navbar.scrolled img {
+			height: 3rem;
+			/* h-12 (48px) */
+		}
+
+		/* Estilos para los enlaces de navegación (GRANDE) */
+		.nav-links a {
+			font-size: 1.425rem;
+			/* text-lg */
+			letter-spacing: 0.05em;
+			/* tracking-wider */
+			transition: font-size 0.3s ease-in-out, letter-spacing 0.3s ease-in-out;
+		}
+
+		/* Estilos de los enlaces al hacer scroll (PEQUEÑO) */
+		#navbar.scrolled .nav-links a {
+			font-size: 0.875rem;
+			/* text-sm */
+			letter-spacing: 0.025em;
+			/* tracking-wide */
+		}
+
+
+		/* Botón Principal (CTA) */
+		.cta-button {
+			background-color: var(--dorado-lumma);
+			color: var(--fondo-principal);
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			padding: 0.8rem 2.2rem;
+			border-radius: 6px;
+			transition: all 0.3s ease;
+			display: inline-block;
+			text-align: center; 
+			box-shadow: 0 4px 20px -5px rgba(233, 169, 59, 0.5);
+		}
+
+		.cta-button:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 25px -5px rgba(233, 169, 59, 0.7);
+		}
+
+		/* Botón Secundario (para fondos claros) */
+		.cta-button-dark {
+			background-color: var(--fondo-principal);
+			color: var(--blanco-puro);
+			font-family: 'IBM Plex Sans', sans-serif;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			padding: 0.8rem 2.2rem;
+			border-radius: 6px;
+			transition: all 0.3s ease;
+			display: block; 
+			text-align: center; 
+			box-shadow: 0 4px 20px -5px rgba(26, 26, 26, 0.3);
+		}
+
+		.cta-button-dark:hover {
+			transform: translateY(-3px);
+			background-color: #333;
+			box-shadow: 0 8px 25px -5px rgba(26, 26, 26, 0.5);
+		}
+
+		/* Formulario y Encuesta */
+		.form-input,
+		.survey-question,
+		.radio-label {
+			background-color: var(--gris-oscuro-claro);
+			border: 1px solid #444;
+			color: var(--blanco-puro);
+			border-radius: 8px;
+			/* Más suave: rounded-lg */
+			padding: 0.85rem 1rem;
+			transition: all 0.3s ease;
+		}
+
+		.form-input:focus,
+		.survey-question:focus-within {
+			outline: none;
+			border-color: var(--dorado-lumma);
+			box-shadow: 0 0 0 3px rgba(233, 169, 59, 0.4);
+		}
+
+		.radio-label:hover {
+			background-color: #3a3a3a;
+		}
+
+		input[type="radio"]:checked+.radio-label {
+			background-color: var(--dorado-lumma);
+			border-color: var(--dorado-lumma);
+			color: var(--fondo-principal);
+			font-weight: 600;
+			box-shadow: 0 0 12px rgba(233, 169, 59, 0.7);
+		}
+
+		/* Formulario en fondo claro */
+		.section-light .form-input {
+			background-color: #f0f0f0;
+			border: 1px solid #ccc;
+			color: var(--texto-oscuro);
+		}
+
+		.section-light .form-input:focus {
+			background-color: var(--blanco-puro);
+			border-color: var(--dorado-lumma);
+			box-shadow: 0 0 0 3px rgba(233, 169, 59, 0.4);
+		}
+
+		/* Iconos de Check */
+		.check-icon {
+			color: var(--dorado-lumma);
+			font-size: 1.5rem;
+			line-height: 1;
+		}
+
+
+/* Ajuste para anclas de navegación con header fijo */
+		section[id] {
+			scroll-margin-top: 120px;
+			/* Ajusta este valor según la altura de tu header */
+		}
+
+	/* ==== INICIO: AJUSTES PARA MÓVIL (CORREGIDO) ==== */
+		@media (max-width: 767px) { /* Se aplica a pantallas más pequeñas que 'md' (768px) */
+			
+			/* 1. Centrar el logo en el header */
+			#navbar nav {
+				position: relative; /* Necesario para posicionar el botón hamburguesa */
+				
+			}
+
+			/* 2. Reposicionar el menú hamburguesa AL EXTREMO DERECHO */
+			header#navbar nav div.md\\:hidden { /* Selector más específico */
+				position: absolute !important; /* Saca el botón del flujo normal */
+				top: 50%;
+				right: 1.5rem; /* Corresponde al 'px-6' del nav */
+				transform: translateY(-50%); /* Centra verticalmente el botón */
+			}
+
+			/* 3. Ajustar el tamaño del logo en móvil */
+			#navbar:not(.scrolled) nav a img {
+				height: 4.5rem !important; /* h-18. Anula el h-24 */
+			}
+			
+			/* 4. Ajustar el tamaño del logo al hacer scroll */
+			/* Este ya está correcto y no necesita !important si el de arriba es más específico */
+			#navbar.scrolled nav a img {
+				height: 3rem !important; /* h-12. Mantiene la consistencia */
+			}
+
+			/* 5. Empujar el contenido "Hero" (subtítulo) hacia abajo */
+			#hero-content {
+				padding-top: 10rem !important; 
+				padding-bottom: 2rem !important;
+			}
+
+			/* 6. Ajustar el botón "Comience su Transformación" en móvil */
+			#hero-content .cta-button {
+				margin-top: 4rem !important; /* Reduce el 'mt-32' original */
+			}
+
+			/* 7. Poner el fondo del menú desplegable NEGRO OPACO */
+			#mobile-menu {
+				background-color: var(--fondo-principal) !important; /* Usa el color #1a1a1a */
+				backdrop-filter: none !important; /* Quita el efecto 'blur' */
+			}
+
+			
+		}
+		/* ==== FIN: AJUSTES PARA MÓVIL ==== */
+
+	</style>
+</head>
+
+<body class="font-body">
+
+	<!-- ==== HEADER / MENÚ ==== -->
+	<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6">
+		<nav class="container mx-auto max-w-7xl px-6 py-4 flex justify-between items-center">
+			<!-- Logo LUMMA CLUB -->
+			<a href="#inicio" class="flex items-center space-x-2">
+				<img src="img/logo_lummaclub_2.png" alt="LUMMA CLUB Logo" class="h-24 w-auto transition-all duration-300"> </a>
+
+			<!-- Menú de Navegación (Desktop) -->
+			<div class="hidden md:flex space-x-8 nav-links">
+				<a href="#inicio"
+					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">El
+					inicio</a>
+				<a href="#problema"
+					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">El
+					Reto</a>
+				<a href="#solucion"
+					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">Método
+					IMCAC 360°</a>
+				<a href="#mini-imcac"
+					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">Diagnóstico
+					Rápido</a>
+				<a href="#contacto"
+					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">Contacto</a>
+			</div>
+
+			<!-- Menú Hamburguesa (Móvil) -->
+			<div class="md:hidden">
+				<button id="mobile-menu-button" class="text-white focus:outline-none">
+					<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+					</svg>
+				</button>
+			</div>
+		</nav>
+
+		<!-- Menú Desplegable Móvil -->
+		<div id="mobile-menu" class="hidden md:hidden bg-fondo-principal/95 backdrop-blur-sm shadow-lg">
+			<a href="#inicio" class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">El inicio</a>
+			<a href="#problema"
+				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">El
+				reto</a>
+			<a href="#solucion"
+				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">Método
+				IMCAC 360°</a>
+			<a href="#mini-imcac"
+				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">Mini diagnóstico</a>
+			<a href="#contacto"
+				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200">Contacto</a>
+		</div>
+	</header>
+
+	<main>
+
+		<!-- ==== SECCIÓN HERO / INICIO ==== -->
+		<section id="inicio"
+			class="relative flex items-center justify-center h-screen text-center text-white overflow-hidden">
+			<!-- Video de Fondo -->
+			<video class="h-screen" id="hero-video" autoplay loop muted playsinline
+				poster="https://placehold.co/1920x1080/1a1a1a/cccccc?text=LUMMA+CLUB+Video">
+				<source src="img/video_principal_imcac.mp4" type="video/mp4">
+				Tu navegador no soporta el tag de video.
+			</video>
+
+			<!-- Contenido Sobrepuesto de inicio -->
+			<div id="hero-content" style="padding-bottom: 8px;"
+				class="relative z-10 flex flex-col items-center justify-center w-full h-full p-6 px-4 sm:px-6 lg:px-8 pt-32 md:pt-48">
+
+				<span class="font-heading text-m text-dorado tracking-widest uppercase mb-4 pt-3">
+					TRANSFORMACIÓN CULTURAL, TRAZABILIDAD DOCUMENTAL Y COMUNICACION ASINCRÓNICA
+				</span>
+
+				<h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+					SU EMPRESA MERECE <span class="text-dorado block mt-2 sm:inline-block">CLARIDAD OPERATIVA</span>
+				</h1>
+				<p class="font-body text-lg md:text-2xl mt-6 max-w-4xl text-gray-300 leading-relaxed">
+					En LUMMA CLUB, transformamos el caos comunicativo en eficiencia, trazabilidad y autonomía digital.
+					Prepárese para auditorías documentales y de trazabilidad.
+				</p>
+				<a href="#contacto" class="cta-button mt-32">
+					Comience su Transformación Hoy
+				</a>
+			</div>
+
+		</section>
+
+		<!-- ==== SECCIÓN EL PROBLEMA / EL RETO  ==== -->
+		<section id="problema" class="py-16 md:py-24" style="padding-top: 2px;">
+			<div class="container mx-auto max-w-7xl px-6">
+				<!-- Línea divisoria sutil -->
+				<hr class="w-24 mx-auto border-dorado mb-8">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<h2 class="font-heading text-3xl md:text-4xl text-white">
+						¿Reconoce estos <span class="text-dorado">Retos</span> en su Empresa?
+					</h2>
+				</div>
+
+				<div class="space-y-20">
+					<!-- Reto 1: Trazabilidad -->
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="order-last md:order-first">
+							<span class="font-heading text-sm text-dorado tracking-widest uppercase">EL CAOS DIARIO</span>
+							<h2 class="font-heading text-2xl md:text-4xl mt-4 leading-tight">
+								Trazabilidad inexistente y evidencia perdida
+							</h2>
+
+							<ul class="font-body mt-6 space-y-3">
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Documentos dispersos sin control en
+									cientos de carpetas.
+								</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Las decisiones importantes se
+									pierden en chats o emails y no hay manera de hacerle trazabilidad.</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Horas perdidas buscando archivos
+									generando retrasos y costos innecesarios.</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Alto riesgo de hallazgos en
+									auditorías de control y gestión documental.</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Dificultad para rastrear y enlazar
+									documentos relacionados: entre tantos archivos es casi imposible conectar planes, registros y
+									evidencias de acciones pasadas.</li>
+							</ul>
+						</div>
+						<div>
+							<img src="img/caos_diario_caos_desorden escritorio.jpg" alt="Evidencia de auditoría"
+								class="rounded-xl shadow-2xl w-5/6 mx-auto">
+						</div>
+					</div>
+
+					<!-- Reto 2: M365 -->
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div>
+							<img src="img/la_herramienta_desorden_digital.jpg" alt="Microsoft 365"
+								class="rounded-xl shadow-2xl w-5/6 mx-auto">
+						</div>
+						<div>
+							<span class="font-heading text-sm text-dorado tracking-widest uppercase">LA HERRAMIENTA PUESTA</span>
+							<h2 class="font-heading text-2xl md:text-4xl mt-4 leading-tight">Inversión Tecnológica
+								Desaprovechada</h2>
+							<p class="font-body text-lg mt-6 text-gray-300 leading-relaxed">
+								Invierte en M365 pero solo usa Word, Excel y Outlook. Su potencial de colaboración (Teams, Planner,
+								SharePoint) y
+								gestión documental es inmenso y no se está traduciendo en eficiencia ni seguridad, solo en
+								almacenamiento sin control, convirtiendo en un caos o desorden digital.
+							</p>
+							<ul class="font-body mt-6 space-y-3">
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Múltiples versiones del mismo
+									archivo.</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Colaboración caótica sin estructura.
+								</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Inversión tecnológica sin
+									aprovechamiento.</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Desorden digital.</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Las decisiones, los archivos
+									importantes y las tareas pendientes navegan perdidas en el mar de correo electronico</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Reto 3: Dependencia -->
+					<div class="grid md:grid-cols-2 gap-12 items-center">
+						<div class="order-last md:order-first">
+							<span class="font-heading text-sm text-dorado tracking-widest uppercase">EL RIESGO DE PERDIDA DE
+								INFORMACIÓN</span>
+							<h2 class="font-heading text-2xl md:text-4xl mt-4 leading-tight">Dependencia del Conocimiento
+								Individual</h2>
+							<p class="font-body text-lg mt-6 text-gray-300 leading-relaxed">
+								Si un miembro clave de su equipo se ausenta: ¿la operación se detiene?. El conocimiento no está
+								sistematizado, creando cuellos de botella y vulnerabilidades operativas.
+							</p>
+							<ul class="font-body mt-6 space-y-3">
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Reuniones para saber "en qué
+									estamos" (sin control de seguimiento a proyectos).</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Pérdida de conocimiento con la
+									rotación. (Empleados nuevo = reinicio operativo)</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Falta de autonomía en el equipo
+									generando dependencia constante de líderes o colaboradores clave, lo que frena la iniciativa y la toma
+									de decisiones.</li>
+								<li class="flex items-center"><span class="check-icon mr-3">✓</span>Dificultad para acceder a
+									información histórica o contextos pasados: los equipos dependen de quienes “recuerdan” cómo se
+									hicieron las cosas, sin registros centralizados que permitan continuar procesos o decisiones con
+									claridad.</li>
+							</ul>
+						</div>
+						<div>
+							<img src="img/El_riegos_humano_empleadosale_con_informacion_reinicio perativo.jpg"
+								alt="Dependencia del personal" class="rounded-xl shadow-2xl w-5/6 mx-auto">
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="casos-uso" class="py-16 md:py-24 bg-zinc-900 border-t border-gray-800">
+			<div class="container mx-auto max-w-7xl px-6">
+				<!-- Línea divisoria sutil -->
+				<hr class="w-24 mx-auto border-dorado mb-8">
+				<div class="text-center max-w-3xl mx-auto mb-16">
+					<span class="font-heading text-sm text-dorado tracking-widest uppercase">IMPACTO EN SU OPERACIÓN</span>
+					<h2 class="font-heading text-3xl md:text-4xl text-white mt-4">
+						¿Dónde recuperará el control con <span class="text-dorado">LUMMA CLUB</span>?
+					</h2>
+					<p class="font-body text-gray-400 mt-4">
+						El caos no es abstracto: cuesta dinero y riesgos legales. Identifique su dolor en estos escenarios y visualice
+						la solución.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+					<div
+						class="group relative bg-zinc-800 rounded-xl p-6 border border-gray-700 hover:border-dorado transition-all duration-300 hover:-translate-y-1">
+						<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+							<svg class="w-16 h-16 text-dorado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+							</svg>
+						</div>
+						<h3 class="font-heading text-xl text-white mb-4">Compras y Abastecimiento</h3>
+
+						<div class="mb-4 pb-4 border-b border-gray-700">
+							<p class="text-xs font-bold text-red-400 uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+								</svg>
+								Situación
+							</p>
+							<p class="text-sm text-gray-400">El auditor pregunta: <em>"¿Por qué se eligió ese proveedor especifico?"</em>.
+								Nadie tiene respuesta porque la negociación y la aprobación quedaron en un audio de WhatsApp que ya se
+								borró.</p>
+						</div>
+
+						<div>
+							<p class="text-xs font-bold text-dorado uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Solución LUMMA
+							</p>
+							<p class="text-sm text-gray-200">Carpeta digital por proveedor con comparativo de precios obligatorio y acta
+								de aprobación firmada. La justificación siempre está disponible y trazable.</p>
+						</div>
+					</div>
+
+					<div
+						class="group relative bg-zinc-800 rounded-xl p-6 border border-gray-700 hover:border-dorado transition-all duration-300 hover:-translate-y-1">
+						<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+							<svg class="w-16 h-16 text-dorado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+								</path>
+							</svg>
+						</div>
+						<h3 class="font-heading text-xl text-white mb-4">Tecnología</h3>
+
+						<div class="mb-4 pb-4 border-b border-gray-700">
+							<p class="text-xs font-bold text-red-400 uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+								</svg>
+								Situación
+							</p>
+							<p class="text-sm text-gray-400">Un empleado fue despedido hace una semana, pero el area de tecnología no recibió ninguna notificación de
+								"baja".  Su usuario sigue activo hoy, descargando bases de datos de clientes desde su casa.</p>
+						</div>
+
+						<div>
+							<p class="text-xs font-bold text-dorado uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Solución LUMMA
+							</p>
+							<p class="text-sm text-gray-200">Flujo automático de "Retiro de Personal": RRHH dispara la alerta y TI bloquea
+								accesos y documenta la devolución del equipo el mismo día.</p>
+						</div>
+					</div>
+
+					<div
+						class="group relative bg-zinc-800 rounded-xl p-6 border border-gray-700 hover:border-dorado transition-all duration-300 hover:-translate-y-1">
+						<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+							<svg class="w-16 h-16 text-dorado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
+								</path>
+							</svg>
+						</div>
+						<h3 class="font-heading text-xl text-white mb-4">Legal y Gerencia</h3>
+
+						<div class="mb-4 pb-4 border-b border-gray-700">
+							<p class="text-xs font-bold text-red-400 uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+								</svg>
+								Situación
+							</p>
+							<p class="text-sm text-gray-400">Se renovó automáticamente un contrato de arrendamiento que querían cancelar,
+								porque nadie vio la fecha de preaviso. La decisión de "no renovar" se dijo en un pasillo, nadie la
+								escribió y no saben donde esta el contrato.</p>
+						</div>
+
+						<div>
+							<p class="text-xs font-bold text-dorado uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Solución LUMMA
+							</p>
+							<p class="text-sm text-gray-200">Repositorio central de contratos con alertas de vencimiento automáticas y
+								actas de gerencia obligatorias para decisiones vinculantes.</p>
+						</div>
+					</div>
+
+					<div
+						class="group relative bg-zinc-800 rounded-xl p-6 border border-gray-700 hover:border-dorado transition-all duration-300 hover:-translate-y-1">
+						<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+							<svg class="w-16 h-16 text-dorado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+								</path>
+							</svg>
+						</div>
+						<h3 class="font-heading text-xl text-white mb-4">Mercadeo y Diseño</h3>
+
+						<div class="mb-4 pb-4 border-b border-gray-700">
+							<p class="text-xs font-bold text-red-400 uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+								</svg>
+								Situación
+							</p>
+							<p class="text-sm text-gray-400">Se enviaron a imprimir 1,000 catálogos con el precio equivocado. El diseñador
+								tomó el archivo <em>"Final_v2"</em> del chat, en lugar del <em>"Final_Aprobado_Gerencia"</em> que estaba en
+								otro chat.</p>
+						</div>
+
+						<div>
+							<p class="text-xs font-bold text-dorado uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Solución LUMMA
+							</p>
+							<p class="text-sm text-gray-200">Protocolo de "Activos Finales": Solo existe una carpeta de "Producción" con
+								archivos validados. Eliminación de versiones basura.</p>
+						</div>
+					</div>
+
+					<div
+						class="group relative bg-zinc-800 rounded-xl p-6 border border-gray-700 hover:border-dorado transition-all duration-300 hover:-translate-y-1">
+						<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+							<svg class="w-16 h-16 text-dorado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+							</svg>
+						</div>
+						<h3 class="font-heading text-xl text-white mb-4">SG-SST y Calidad</h3>
+
+						<div class="mb-4 pb-4 border-b border-gray-700">
+							<p class="text-xs font-bold text-red-400 uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+								</svg>
+								Sitación
+							</p>
+							<p class="text-sm text-gray-400">Ocurrió un accidente laboral. La ARL (seguro) solicita la firma de asistencia
+								a la capacitación de seguridad de ese empleado, pero la planilla física se perdió en una mudanza de oficina.
+							</p>
+						</div>
+
+						<div>
+							<p class="text-xs font-bold text-dorado uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Solución LUMMA
+							</p>
+							<p class="text-sm text-gray-200">Digitalización inmediata de evidencias. Repositorios de SG-SST organizados, trazables y facil de localizar.</p>
+						</div>
+					</div>
+
+					<div
+						class="group relative bg-zinc-800 rounded-xl p-6 border border-gray-700 hover:border-dorado transition-all duration-300 hover:-translate-y-1">
+						<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+							<svg class="w-16 h-16 text-dorado" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+									d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z">
+								</path>
+							</svg>
+						</div>
+						<h3 class="font-heading text-xl text-white mb-4">Servicio al Cliente</h3>
+
+						<div class="mb-4 pb-4 border-b border-gray-700">
+							<p class="text-xs font-bold text-red-400 uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+								</svg>
+								Sitación
+							</p>
+							<p class="text-sm text-gray-400">Un cliente importante envió una queja urgente al correo genérico
+								<em>info@empresa.com</em>. Tres personas lo leyeron, cada una pensó que "alguien más" respondería. Nadie
+								respondió.</p>
+						</div>
+
+						<div>
+							<p class="text-xs font-bold text-dorado uppercase mb-2 flex items-center">
+								<svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Solución LUMMA
+							</p>
+							<p class="text-sm text-gray-200">Asignación clara de responsables (Ticket o Planner). Si llega un correo, se
+								convierte en tarea con nombre propio y fecha límite.</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="mt-16 text-center">
+					<p class="font-body text-gray-400 mb-6">
+						¿Su problema no está en la lista pero le duele igual? El caos tiene muchas formas, el método es uno.
+					</p>
+					<a href="#contacto" class="cta-button inline-block">
+						Diagnosticar mi Proceso Específico
+					</a>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ==== SECCIÓN LA SOLUCIÓN / MÉTODO IMCAC ==== -->
+		<section id="solucion" class="py-8 md:py-10 section-light">
+			<div class="container mx-auto max-w-7xl px-6">
+				<!-- Línea divisoria sutil -->
+				<hr class="w-24 mx-auto border-dorado mb-8">
+				<div class="text-center max-w-3xl mx-auto">
+					<span class="font-heading text-sm tracking-widest uppercase">LA TRANSFORMACIÓN DE <strong>LUMMA
+							CLUB</strong></span>
+					<h2 class="font-heading text-4xl md:text-5xl mt-4 leading-tight"> El Método <span
+							class="text-dorado [text-shadow:1px_1px_2px_rgba(0,0,0,0.2)]">IMCAC 360°</span></h2>
+					<p>
+						No es solo una consultoría, es una <strong style="font-style: italic;">transformación cultural
+							completa.</strong>
+						<br><br>Implementamos el <strong>Indicador de Madurez de Comunicación Asincrónica y Colaborativa (IMCAC 360°) -
+							herramienta de LUMMA
+							<span class="text-dorado [text-shadow:1px_1px_2px_rgba(0,0,0,0.2)]">CLUB</span></strong>, que
+						permite diagnosticar con precisión el punto de partida, identificar brechas reales en la colaboración y
+						comunicacion asincrónica, y definir
+						estrategias personalizadas de mejora, para luego redefinir cómo su equipo colabora, se comunica y gestiona
+						la información, garantizando resultados
+						medibles.
+					</p>
+					<br>
+					<p>
+						Con <strong>IMCAC 360°</strong>, su empresa no solo adopta nuevas herramientas, sino que <strong>evoluciona su cultura
+							organizacional</strong>
+						hacia una comunicación más clara, eficiente y trazable, preparada para acelerar la opercion y por ende mas
+						eficiente.
+					</p>
+				</div>
+
+				<!-- Fases del Método -->
+				<div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8 mt-12 text-center">
+					<!-- Fase 1 -->
+					<div
+						class="bg-white p-5 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+						<div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-dorado/10">
+							<svg class="w-8 h-8 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke-width="1.5" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+							</svg>
+						</div>
+						<h3 class="font-heading text-lg mt-2">Diagnóstico <br> IMCAC 360°</h3>
+						<p class="font-body text-sm text-gray-600 mt-2">Radiografía cultural para identificar puntos críticos de
+							comunicación asincrónica y eficiencia colaborativa.</p>
+					</div>
+					<!-- Fase 2 -->
+					<div
+						class="bg-white p-5 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+						<div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-dorado/10">
+							<svg class="w-8 h-8 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke-width="1.5" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+							</svg>
+						</div>
+						<h3 class="font-heading text-lg mt-2">Formación Estratégica</h3>
+						<p class="font-body text-sm text-gray-600 mt-2">Capacitación en la filosofía de comunicación asincrónica y
+							colaborativa.</p>
+					</div>
+					<!-- Fase 3 -->
+					<div
+						class="bg-white p-5 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+						<div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-dorado/10">
+							<svg class="w-8 h-8 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke-width="1.5" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+							</svg>
+						</div>
+						<h3 class="font-heading text-lg mt-2">Construcción Documental</h3>
+						<p class="font-body text-sm text-gray-600 mt-2">Creación de políticas y estructuras para la gestión de su
+							información.</p>
+					</div>
+					<!-- Fase 4 -->
+					<div
+						class="bg-white p-5 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+						<div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-dorado/10">
+							<svg class="w-8 h-8 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke-width="1.5" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+							</svg>
+						</div>
+						<h3 class="font-heading text-lg mt-2">Acompañamiento y Auditorias</h3>
+						<p class="font-body text-sm text-gray-600 mt-2">Supervisión de la implementación y ajustes para una
+							adaptación óptima.</p>
+					</div>
+					<!-- Fase 5 -->
+					<div
+						class="bg-white p-5 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+						<div class="flex items-center justify-center h-16 w-16 mx-auto mb-4 rounded-full bg-dorado/10">
+							<svg class="w-8 h-8 text-dorado" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+								stroke-width="1.5" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+							</svg>
+						</div>
+						<h3 class="font-heading text-lg mt-2">Autonomía Digital</h3>
+						<p class="font-body text-sm text-gray-600 mt-2">Su equipo opera de forma autónoma y con herramientas que
+							evolucionan.</p>
+					</div>
+				</div>
+
+				<div class="text-center mt-12">
+					<a href="#contacto" class="cta-button-dark"> Quiero implementar IMCAC 360°</a>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- ==== SECCIÓN MINI-ENCUESTA IMCAC  ==== -->
+		<section id="mini-imcac" class="py-8 md:py-10">
+			<div class="container mx-auto max-w-4xl px-6 text-center">
+				<!-- Línea divisoria sutil -->
+				<hr class="w-24 mx-auto border-dorado mb-8">
+				<h2 class="font-heading text-3xl md:text-5xl mt-4 leading-tight text-white">
+					MINI-IMCAC: <span class="text-dorado">Mida su percepcion <br>del CAOS</span>
+				</h2>
+				<p class="font-body text-lg max-w-2xl mx-auto mt-6 text-gray-400">
+					Este mini cuestionario es una pequeña probada para que conozca de forma
+					rápida cómo está la comunicación asincrónica en su organización. Son solo 4 preguntas que ofrecen una vista
+					parcial, muy distinta al diagnóstico profundo y detallado que obtendrá al aplicar el IMCAC 360° completo. Sea honesto para un diagnóstico preciso.
+				</p>
+
+				<div id="survey-form" class="mt-16 space-y-8 text-left">
+					<!-- Pregunta 1 -->
+					<fieldset>
+						<div class="survey-question p-6 rounded-xl shadow-xl">
+							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">1. ¿Podría conocer hoy las tareas de su
+								equipo (de cada responsable) sin hacer una reunión o revisar correos/WhatsApp?</legend>
+							<div class="flex flex-col sm:flex-row gap-4 mt-4">
+								<input type="radio" name="q1" id="q1-si" value="si" class="hidden">
+								<label for="q1-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí, sin
+									problema</label>
+
+								<input type="radio" name="q1" id="q1-no" value="no" class="hidden">
+								<label for="q1-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No, es un
+									caos</label>
+							</div>
+						</div>
+					</fieldset>
+
+					<!-- Pregunta 2 -->
+					<fieldset>
+						<div class="survey-question p-6 rounded-xl shadow-xl">
+							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">2. Si un colaborador clave falta, ¿su
+								reemplazo podría continuar su trabajo sin una reunión de empalme o entrega personal de archivos?</legend>
+							<div class="flex flex-col sm:flex-row gap-4 mt-4">
+								<input type="radio" name="q2" id="q2-si" value="si" class="hidden">
+								<label for="q2-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí, la
+									información está accesible</label>
+
+								<input type="radio" name="q2" id="q2-no" value="no" class="hidden">
+								<label for="q2-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No,
+									habría muchas dudas</label>
+							</div>
+						</div>
+					</fieldset>
+
+					<!-- Pregunta 3 -->
+					<fieldset>
+						<div class="survey-question p-6 rounded-xl shadow-xl">
+							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">3. ¿Cualquier miembro del equipo podría
+								retomar una tarea pausada de otro colaborador hace dos semanas sin tener que preguntarle?</legend>
+							<div class="flex flex-col sm:flex-row gap-4 mt-4">
+								<input type="radio" name="q3" id="q3-si" value="si" class="hidden">
+								<label for="q3-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí, todo
+									está documentado</label>
+
+								<input type="radio" name="q3" id="q3-no" value="no" class="hidden">
+								<label for="q3-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No, la
+									información no es clara</label>							</div>
+						</div>
+					</fieldset>
+
+					<!-- Pregunta 4 -->
+					<fieldset>
+						<div class="survey-question p-6 rounded-xl shadow-xl">
+							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">4. ¿Existen lineamientos claros que definan cómo organizar, compartir y ubicar la información, de modo que cualquier miembro del equipo pueda encontrar fácilmente lo que necesita sin pregunarle a nadie más?</legend>
+							<div class="flex flex-col sm:flex-row gap-4 mt-4">
+								<input type="radio" name="q4" id="q4-si" value="si" class="hidden">
+								<label for="q4-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí,
+									tenemos normas establecidas</label>
+
+								<input type="radio" name="q4" id="q4-no" value="no" class="hidden">
+								<label for="q4-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No, cada
+									uno guarda como quiere</label>
+							</div>
+						</div>
+					</fieldset>
+
+					<div class="text-center pt-8">
+						<button id="survey-submit" type="button" class="cta-button">
+							Evaluar mi Nivel IMCAC
+						</button>
+					</div>
+
+					<!-- Resultados de la Encuesta (Ocultos por defecto) -->
+					<div id="survey-results"
+						class="hidden mt-12 p-8 rounded-xl bg-gris-oscuro-claro border-t-4 border-dorado shadow-2xl text-center">
+						<h3 id="results-title" class="font-heading text-2xl text-dorado"></h3>
+						<p id="results-message" class="font-body text-lg mt-4 text-gray-200 leading-relaxed"></p>
+						<a href="#contacto" class="cta-button inline-block mt-8">
+							Agendar una Sesión Estratégica
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ==== SECCIÓN CONTACTO / FORMULARIO (CONTRASTE CLARO) ==== -->
+		<section id="contacto" class="py-8 md:py-10 section-light">
+			<div class="container mx-auto max-w-4xl px-6">
+				<!-- Línea divisoria sutil -->
+				<hr class="w-24 mx-auto border-dorado mb-8">
+				<div class="text-center mb-16 max-w-2xl mx-auto">
+					<h2 class="font-heading text-3xl md:text-5xl">
+						¿Listo para la <span class="text-dorado">transformación</span>?
+					</h2>
+					<p class="font-body text-lg mt-6 text-gray-700 leading-relaxed">
+						Organice su información, recupere la trazabilidad y fortalezca la colaboración en su empresa.
+						Un consultor de <strong>LUMMA <span class="text-dorado">CLUB</span></strong> lo acompañará paso a paso para comprender sus necesidades y construir juntos una mejor forma
+						de trabajar.
+					</p>
+				</div>
+
+				<form id="contact-form" class="max-w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+					<div class="md:col-span-1">
+						<label for="nombre" class="font-body font-semibold text-sm text-gray-700 block mb-2">Nombre Completo</label>
+						<input type="text" id="nombre" name="nombre" required class="form-input w-full" placeholder="Ej: Carlos Méndez">
+					</div>
+
+					<div class="md:col-span-1">
+						<label for="email" class="font-body font-semibold text-sm text-gray-700 block mb-2">Email
+							Corporativo/particular</label>
+						<input type="email" id="email" name="email" required class="form-input w-full" placeholder="Para enviarte la información">
+					</div>
+
+					<div class="md:col-span-1">
+						<label for="empresa" class="font-body font-semibold text-sm text-gray-700 block mb-2">Empresa</label>
+						<input type="text" id="empresa" name="empresa"  class="form-input w-full" placeholder="Nombre de tu compañía o particular">
+					</div>
+
+					<div class="md:col-span-1">
+						<label for="whatsapp" class="font-body font-semibold text-sm text-gray-700 block mb-2">WhatsApp</label>
+						<input type="tel" id="whatsapp" name="whatsapp" class="form-input w-full" placeholder="Para comunicarnos contigo">
+					</div>
+
+					<div class="md:col-span-2">
+						<label for="mensaje" class="font-body font-semibold text-sm text-gray-700 block mb-2">¿Cuál es su principal
+							desafío de comunicación/trazabilidad?</label>
+						<textarea id="mensaje" name="mensaje" rows="5" class="form-input w-full" placeholder="Ej: 'Perdemos mucho tiempo buscando evidencia para auditorías...'"></textarea>
+					</div>
+
+					<div class="md:col-span-2 flex items-start space-x-3">
+						<input type="checkbox" id="data-policy-2" name="data-policy" required
+							class="mt-1 h-4 w-4 rounded border-gray-400 text-dorado focus:ring-dorado cursor-pointer">
+						<div>
+							<label for="data-policy-2" class="font-body text-sm text-gray-600">
+								Acepto que he leído y entiendo la <a href="politica-de-datos.html" class="text-dorado hover:underline" target="_blank">Política de
+									Tratamiento de Datos</a> y autorizo el uso de mis datos para las finalidades allí descritas.
+							</label>
+						</div>
+					</div>
+
+					<div class="md:col-span-2 text-center pt-4">
+						<button id="contact-submit-button-2" type="submit"
+							class="cta-button-dark w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+							Solicitar Asesoría Estratégica
+						</button>
+					</div>
+				</form>
+
+				<!-- Mensaje de confirmación -->
+				<div id="form-success"
+					class="hidden max-w-xl mx-auto mt-8 p-8 text-left bg-green-50 border border-green-300 rounded-lg space-y-4">
+					<!-- El contenido se generará con JavaScript -->
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+
+	<!-- ==== FOOTER ==== -->
+	<footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+		<div class="container mx-auto max-w-7xl px-6">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+
+				<!-- Columna 1: Logo y Descripción -->
+				<div class="space-y-4 flex flex-col items-center md:items-start">
+					<a href="#inicio">
+						<img src="img/logo_lummaclub_2.png" alt="LUMMA CLUB Logo" class="h-20 mb-2">
+					</a>
+					<p class="font-body text-sm text-center md:text-left">
+						Transformamos el caos comunicativo en claridad operativa, garantizando trazabilidad y eficiencia para su
+						empresa.
+					</p>
+				</div>
+
+				<!-- Columna 2: Navegación -->
+				<div>
+					<h3 class="font-heading text-base font-semibold text-white tracking-wider">Navegación</h3>
+					<ul class="mt-4 space-y-2">
+						<li><a href="#inicio" class="hover:text-dorado transition-colors">El inicio</a></li>
+						<li><a href="#problema" class="hover:text-dorado transition-colors">El reto</a></li>
+						<li><a href="#solucion" class="hover:text-dorado transition-colors">Método <strong>IMCAC 360°</strong></a></li>
+						<li><a href="#mini-imcac" class="hover:text-dorado transition-colors">Mini diagnóstico</a></li>
+						<li><a href="#contacto" class="hover:text-dorado transition-colors">Contacto</a></li>
+					</ul>
+				</div>
+
+				<!-- Columna 3: Contacto -->
+				<div>
+					<h3 class="font-heading text-base font-semibold text-white tracking-wider">Contacto</h3>
+					<ul class="mt-4 space-y-2">
+						<li><a href="mailto:contacto@lummaclub.com"
+								class="hover:text-dorado transition-colors">contacto@lummaclub.com</a></li>
+						<li><p>Medellín, Colombia</p></li>
+					</ul>
+				</div>
+
+				<!-- Columna 4:  -->
+				<div>
+					<h3 class="font-heading text-base font-semibold text-white tracking-wider">Legal</h3>
+					<ul class="mt-4 space-y-2">
+						<li><a href="politica-de-datos.html" class="hover:text-dorado transition-colors" target="_blank">Política de privacidad</a></li>
+						<li><a href="#" class="hover:text-dorado transition-colors">Términos de servicio</a></li>
+						<li><a href="#" class="hover:text-dorado transition-colors">PQRS</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Línea divisoria y Copyright -->
+			<div class="border-t border-gray-800 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center">
+				<p class="font-body text-sm text-gray-500 order-2 sm:order-1 mt-4 sm:mt-0">
+					© 2025 <strong>LUMMA CLUB</strong>. Todos los derechos reservados.
+				</p>
+				<div class="flex space-x-4 order-1 sm:order-2">
+					<a href="#" class="text-gray-400 hover:text-dorado transition-colors" aria-label="LinkedIn">
+						<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path
+								d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- ==== JAVASCRIPT ==== -->
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+
+			// --- Menú Pegajoso (Sticky Header) ---
+			const navbar = document.getElementById('navbar');
+			window.addEventListener('scroll', () => {
+				if (window.scrollY > 50) {
+					navbar.classList.add('scrolled');
+				} else {
+					navbar.classList.remove('scrolled');
+				}
+			});
+
+			// --- Menú Móvil (Hamburguesa) ---
+			const mobileMenuButton = document.getElementById('mobile-menu-button');
+			const mobileMenu = document.getElementById('mobile-menu');
+			mobileMenuButton.addEventListener('click', () => {
+				mobileMenu.classList.toggle('hidden');
+			});
+
+			// --- Cerrar menú móvil al hacer clic en un enlace ---
+			const mobileLinks = mobileMenu.getElementsByTagName('a');
+			for (let link of mobileLinks) {
+				link.addEventListener('click', () => {
+					mobileMenu.classList.add('hidden');
+				});
+			}
+
+			// --- Lógica de la Mini-Encuesta IMCAC ---
+			const surveySubmitButton = document.getElementById('survey-submit');
+			const surveyResults = document.getElementById('survey-results');
+			const resultsTitle = document.getElementById('results-title');
+			const resultsMessage = document.getElementById('results-message');
+
+			surveySubmitButton.addEventListener('click', () => {
+				const q1 = document.querySelector('input[name="q1"]:checked');
+				const q2 = document.querySelector('input[name="q2"]:checked');
+				const q3 = document.querySelector('input[name="q3"]:checked');
+				const q4 = document.querySelector('input[name="q4"]:checked');
+
+				// Validación simple
+				if (!q1 || !q2 || !q3 || !q4) {
+					alert('Por favor, responda todas las preguntas para ver su resultado.');
+					return;
+				}
+
+				let score = 0;
+				if (q1.value === 'si') score++;
+				if (q2.value === 'si') score++;
+				if (q3.value === 'si') score++;
+				if (q4.value === 'si') score++;
+
+				surveyResults.classList.remove('hidden');
+				surveyResults.style.display = 'block'; // Asegura que se muestre
+
+				if (score < 4) {
+					resultsTitle.textContent = '¡SU EMPRESA NECESITA CLARIDAD URGENTE!';
+					resultsMessage.textContent = 'Su percepción de caos es alta. La dependencia de la memoria y la falta de procesos y actividades documentadas son cuellos de botella para su crecimiento y riesgos para sus auditorías. El Método IMCAC 360° es la solución que busca.';
+				} else {
+					resultsTitle.textContent = '¡FELICITACIONES, BUENA BASE EXISTENTE!';
+					resultsMessage.textContent = 'Su equipo ya maneja algunas prácticas de autonomía y trazabilidad. Están en un excelente punto para perfeccionar y escalar su comunicación asincrónica y colaborativa con el Método IMCAC 360°, asegurando y dando continuidad a esa maestría digital.';
+				}
+
+				// Scroll suave hacia los resultados
+				surveyResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			});
+
+			// --- Lógica del Formulario de Contacto ---
+			const contactForm = document.getElementById('contact-form');
+			const formSuccessMessage = document.getElementById('form-success');
+			const policyCheckbox2 = document.getElementById('data-policy-2');
+			const submitButton2 = document.getElementById('contact-submit-button-2');
+
+			contactForm.addEventListener('submit', (e) => {
+				e.preventDefault();
+
+				const nombreUsuario = document.getElementById('nombre').value.split(' ')[0];
+
+				// Simulación de éxito para demostración
+				contactForm.classList.add('hidden');
+
+				formSuccessMessage.innerHTML = `
+					<h3 class="font-heading text-2xl text-gray-800 text-center">¡Hola, ${nombreUsuario}!</h3>
+					<p class="font-body text-gray-700">Qué alegría recibir tu mensaje. Antes que nada, queremos darte las gracias por tu interés y por dar el primer paso para conectar con LUMMA CLUB.</p>
+					<p class="font-body text-gray-700">Hemos recibido tu solicitud y ya está en manos de uno de nuestros especialistas, quien se pondrá en contacto contigo muy pronto.</p>
+					<p class="font-body text-gray-700">Estamos aquí para ayudarte en lo que necesites.</p>
+					<p class="font-body text-gray-700 font-semibold text-center pt-4">¡Hablamos en breve!</p>
+					<p class="font-body text-gray-600 text-center">Un cordial saludo,<br>El equipo de LUMMA CLUB</p>
+				`;
+
+				formSuccessMessage.classList.remove('hidden');
+				formSuccessMessage.style.display = 'block';
+				formSuccessMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			});
+
+			policyCheckbox2.addEventListener('change', () => {
+				submitButton2.disabled = !policyCheckbox2.checked;
+			});
+		});
+	</script>
+
+</body>
+
+</html>
