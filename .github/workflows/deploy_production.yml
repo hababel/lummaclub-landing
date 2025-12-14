@@ -21,5 +21,7 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         exclude: |
           **/.git*
+          **/.git*/**
           **/.github*
+          **/.github*/**
           README.md
