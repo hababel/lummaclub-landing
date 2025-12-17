@@ -410,17 +410,15 @@
 
 		<!-- ==== SECCIÓN HERO / INICIO ==== -->
 		<section id="inicio"
-			class="relative flex items-center justify-center h-screen text-center text-white overflow-hidden">
-			<!-- Video de Fondo -->
-			<video class="h-screen" id="hero-video" autoplay loop muted playsinline
+			class="relative flex items-center justify-center min-h-screen text-center text-white overflow-hidden">
+			<video class="absolute top-0 left-0 w-full h-full object-cover z-0" id="hero-video" autoplay loop muted playsinline
 				poster="https://placehold.co/1920x1080/1a1a1a/cccccc?text=LUMMA+CLUB+Video">
 				<source src="img/video_principal_imcac.mp4" type="video/mp4">
 				Tu navegador no soporta el tag de video.
 			</video>
 
-			<!-- Contenido Sobrepuesto de inicio -->
-			<div id="hero-content" style="padding-bottom: 8px;"
-				class="relative z-10 flex flex-col items-center justify-center w-full h-full p-6 px-4 sm:px-6 lg:px-8 pt-32 md:pt-48">
+			<div id="hero-content"
+				class="relative z-10 flex flex-col items-center justify-center w-full h-full p-6 px-4 sm:px-6 lg:px-8 pt-32 md:pt-48 pb-16">
 
 				<span class="font-heading text-m text-dorado tracking-widest uppercase mb-4 pt-3">
 					TRANSFORMACIÓN CULTURAL, TRAZABILIDAD DOCUMENTAL Y COMUNICACION ASINCRÓNICA
@@ -433,7 +431,8 @@
 					En LUMMA CLUB, transformamos el caos comunicativo en eficiencia, trazabilidad y autonomía digital.
 					Prepárese para auditorías documentales y de trazabilidad.
 				</p>
-				<a href="#contacto" class="cta-button mt-32">
+
+				<a href="#contacto" class="cta-button mt-16 md:mt-32">
 					Comience su Transformación Hoy
 				</a>
 			</div>
