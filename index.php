@@ -1,3 +1,28 @@
+<?php
+	
+	
+// Detectar el dominio actual
+$host = $_SERVER['HTTP_HOST']; // Devuelve "lummaclub.com", "web-staging.lummaclub.com" o "localhost"
+
+// Lógica de decisión
+if (strpos($host, 'web-staging') !== false) {
+    // Caso 1: Estamos en el subdominio de PRUEBAS
+    define('APP_URL_CONTACT_FORM', 'https://app-staging.lummaclub.com');
+
+} elseif (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false) {
+    // Caso 2: Estamos en LOCAL (tu PC)
+    // Ajusta esto a tu URL local real si es diferente
+    define('APP_URL_CONTACT_FORM', 'http://localhost/imcac'); 
+
+
+} else {
+    // Caso 3: Por defecto asumimos PRODUCCIÓN (lummaclub.com)
+    define('APP_URL_CONTACT_FORM', 'https://app.lummaclub.com');
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
@@ -281,66 +306,67 @@
 			/* Ajusta este valor según la altura de tu header */
 		}
 
-		/* ==== INICIO: AJUSTES PARA MÓVIL (CORREGIDO) ==== */
+	
+		/* ==== INICIO: AJUSTES PARA MÓVIL (OPTIMIZADO) ==== */
 		@media (max-width: 767px) {
 			/* Se aplica a pantallas más pequeñas que 'md' (768px) */
 
 			/* 1. Centrar el logo en el header */
 			#navbar nav {
 				position: relative;
-				/* Necesario para posicionar el botón hamburguesa */
-
 			}
 
 			/* 2. Reposicionar el menú hamburguesa AL EXTREMO DERECHO */
 			header#navbar nav div.md\\:hidden {
-				/* Selector más específico */
 				position: absolute !important;
-				/* Saca el botón del flujo normal */
 				top: 50%;
 				right: 1.5rem;
-				/* Corresponde al 'px-6' del nav */
 				transform: translateY(-50%);
-				/* Centra verticalmente el botón */
 			}
 
 			/* 3. Ajustar el tamaño del logo en móvil */
 			#navbar:not(.scrolled) nav a img {
-				height: 4.5rem !important;
-				/* h-18. Anula el h-24 */
+				height: 3.5rem !important; /* Reducido de 4.5rem para ganar espacio vertical */
 			}
 
-			/* 4. Ajustar el tamaño del logo al hacer scroll */
-			/* Este ya está correcto y no necesita !important si el de arriba es más específico */
 			#navbar.scrolled nav a img {
 				height: 3rem !important;
-				/* h-12. Mantiene la consistencia */
 			}
 
-			/* 5. Empujar el contenido "Hero" (subtítulo) hacia abajo */
+			/* 4. Ajustar el padding del Hero para subir el contenido */
 			#hero-content {
-				padding-top: 10rem !important;
+				/* Antes era 10rem. Lo bajamos a 7rem para que suba todo el bloque */
+				padding-top: 7rem !important; 
 				padding-bottom: 2rem !important;
 			}
 
-			/* 6. Ajustar el botón "Comience su Transformación" en móvil */
+			/* 5. Acercar el botón al texto */
 			#hero-content .cta-button {
-				margin-top: 4rem !important;
-				/* Reduce el 'mt-32' original */
+				/* Antes era 4rem. Lo bajamos a 2rem para pegar más el botón al texto */
+				margin-top: 2rem !important; 
 			}
 
-			/* 7. Poner el fondo del menú desplegable NEGRO OPACO */
+			/* 6. Fondo del menú móvil */
 			#mobile-menu {
 				background-color: var(--fondo-principal) !important;
-				/* Usa el color #1a1a1a */
 				backdrop-filter: none !important;
-				/* Quita el efecto 'blur' */
+			}
+
+			.txt_trasformacion_seccion_hero {
+				font-size: 1.05rem !important; /* Ajusta el tamaño según sea necesario */}
+			}
+
+			.btn_seccion_hero{
+				font-size: 0.938rem !important; /* Ajusta el tamaño según sea necesario */
+			}
+
+			.title_seccion_hero{
+				font-size: 2.25rem !important; /* Ajusta el tamaño según sea necesario */
 			}
 
 
-		}
-
 		/* ==== FIN: AJUSTES PARA MÓVIL ==== */
+
 	</style>
 </head>
 
@@ -420,11 +446,11 @@
 			<div id="hero-content"
 				class="relative z-10 flex flex-col items-center justify-center w-full h-full p-6 px-4 sm:px-6 lg:px-8 pt-32 md:pt-48 pb-16">
 
-				<span class="font-heading text-m text-dorado tracking-widest uppercase mb-4 pt-3">
-					TRANSFORMACIÓN CULTURAL, TRAZABILIDAD DOCUMENTAL Y COMUNICACION ASINCRÓNICA
+				<span class="font-heading text-m text-dorado tracking-widest mb-4 pt-3" id="txt_trasformacion_seccion_hero">
+					Transformación cultural, trazabilidad coumental y comunicación asincrónica
 				</span>
 
-				<h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+				<h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight" id="title_seccion_hero">
 					SU EMPRESA MERECE <span class="text-dorado block mt-2 sm:inline-block">CLARIDAD OPERATIVA</span>
 				</h1>
 				<p class="font-body text-lg md:text-2xl mt-6 max-w-4xl text-gray-300 leading-relaxed">
@@ -432,9 +458,7 @@
 					Prepárese para auditorías documentales y de trazabilidad.
 				</p>
 
-				<a href="#contacto" class="cta-button mt-16 md:mt-32">
-					Comience su Transformación Hoy
-				</a>
+				<a href="#contacto" class="cta-button mt-16 md:mt-32" id="btn_seccion_hero"> Comience su Transformación Hoy	</a>
 			</div>
 
 		</section>
@@ -1104,7 +1128,7 @@
 
 				// Simulación de éxito para demostración
 				// Enviar datos al backend (PHP)
-				fetch('../imcac/landing/contact', {
+				fetch('<?= APP_URL_CONTACT_FORM ?>/landing/contact', {
 					method: 'POST',
 					body: formData
 				}).catch(error => console.error('Error al enviar:', error));
