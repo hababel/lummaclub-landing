@@ -1,24 +1,20 @@
 <?php
-	
-	
+
+
 // Detectar el dominio actual
 $host = $_SERVER['HTTP_HOST']; // Devuelve "lummaclub.com", "web-staging.lummaclub.com" o "localhost"
 
 // Lógica de decisión
 if (strpos($host, 'web-staging') !== false) {
-    // Caso 1: Estamos en el subdominio de PRUEBAS
-    define('APP_URL_CONTACT_FORM', 'https://app-staging.lummaclub.com');
-
+	// Caso 1: Estamos en el subdominio de PRUEBAS
+	define('APP_URL_CONTACT_FORM', 'https://app-staging.lummaclub.com');
 } elseif (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false) {
-    // Caso 2: Estamos en LOCAL (tu PC)
-    // Ajusta esto a tu URL local real si es diferente
-    define('APP_URL_CONTACT_FORM', 'http://localhost/imcac'); 
-
-
+	// Caso 2: Estamos en LOCAL (tu PC)
+	// Ajusta esto a tu URL local real si es diferente
+	define('APP_URL_CONTACT_FORM', 'http://localhost/imcac');
 } else {
-    // Caso 3: Por defecto asumimos PRODUCCIÓN (lummaclub.com)
-    define('APP_URL_CONTACT_FORM', 'https://app.lummaclub.com');
-
+	// Caso 3: Por defecto asumimos PRODUCCIÓN (lummaclub.com)
+	define('APP_URL_CONTACT_FORM', 'https://app.lummaclub.com');
 }
 
 
@@ -306,7 +302,7 @@ if (strpos($host, 'web-staging') !== false) {
 			/* Ajusta este valor según la altura de tu header */
 		}
 
-	
+
 		/* ==== INICIO: AJUSTES PARA MÓVIL (OPTIMIZADO) ==== */
 		@media (max-width: 767px) {
 			/* Se aplica a pantallas más pequeñas que 'md' (768px) */
@@ -326,7 +322,8 @@ if (strpos($host, 'web-staging') !== false) {
 
 			/* 3. Ajustar el tamaño del logo en móvil */
 			#navbar:not(.scrolled) nav a img {
-				height: 3.5rem !important; /* Reducido de 4.5rem para ganar espacio vertical */
+				height: 3.5rem !important;
+				/* Reducido de 4.5rem para ganar espacio vertical */
 			}
 
 			#navbar.scrolled nav a img {
@@ -336,14 +333,14 @@ if (strpos($host, 'web-staging') !== false) {
 			/* 4. Ajustar el padding del Hero para subir el contenido */
 			#hero-content {
 				/* Antes era 10rem. Lo bajamos a 7rem para que suba todo el bloque */
-				padding-top: 7rem !important; 
+				padding-top: 7rem !important;
 				padding-bottom: 2rem !important;
 			}
 
 			/* 5. Acercar el botón al texto */
 			#hero-content .cta-button {
 				/* Antes era 4rem. Lo bajamos a 2rem para pegar más el botón al texto */
-				margin-top: 2rem !important; 
+				margin-top: 2rem !important;
 			}
 
 			/* 6. Fondo del menú móvil */
@@ -353,20 +350,23 @@ if (strpos($host, 'web-staging') !== false) {
 			}
 
 			.txt_trasformacion_seccion_hero {
-				font-size: 1.05rem !important; /* Ajusta el tamaño según sea necesario */}
+				font-size: 1.05rem !important;
+				/* Ajusta el tamaño según sea necesario */
 			}
+		}
 
-			.btn_seccion_hero{
-				font-size: 0.938rem !important; /* Ajusta el tamaño según sea necesario */
-			}
+		.btn_seccion_hero {
+			font-size: 0.938rem !important;
+			/* Ajusta el tamaño según sea necesario */
+		}
 
-			.title_seccion_hero{
-				font-size: 2.25rem !important; /* Ajusta el tamaño según sea necesario */
-			}
+		.title_seccion_hero {
+			font-size: 2.25rem !important;
+			/* Ajusta el tamaño según sea necesario */
+		}
 
 
 		/* ==== FIN: AJUSTES PARA MÓVIL ==== */
-
 	</style>
 </head>
 
@@ -458,7 +458,7 @@ if (strpos($host, 'web-staging') !== false) {
 					Prepárese para auditorías documentales y de trazabilidad.
 				</p>
 
-				<a href="#contacto" class="cta-button mt-16 md:mt-32" id="btn_seccion_hero"> Comience su Transformación Hoy	</a>
+				<a href="#contacto" class="cta-button mt-16 md:mt-32" id="btn_seccion_hero"> Comience su Transformación Hoy </a>
 			</div>
 
 		</section>
@@ -686,8 +686,8 @@ if (strpos($host, 'web-staging') !== false) {
 		<!-- ==== SECCIÓN TRANSPARENCIA Y ALCANCE ==== -->
 		<section id="alcance" class="py-8 md:py-10 bg-fondo-principal border-t border-gray-800">
 			<div class="container mx-auto max-w-7xl px-6">
-			<!-- Línea divisoria sutil -->
-			<hr class="w-24 mx-auto border-dorado mb-8">
+				<!-- Línea divisoria sutil -->
+				<hr class="w-24 mx-auto border-dorado mb-8">
 				<div class="grid lg:grid-cols-2 gap-16 items-center">
 					<div>
 						<span class="font-heading text-sm text-dorado tracking-widest uppercase">TRANSPARENCIA Y ALCANCE</span>
@@ -910,7 +910,7 @@ if (strpos($host, 'web-staging') !== false) {
 						<label for="email" class="font-body font-semibold text-sm text-gray-700 block mb-2">Email
 							Corporativo/particular</label>
 						<input type="email" id="email" name="email" required class="form-input w-full"
-							placeholder="Para enviarte la información" value="usuario@correo.ext">
+							placeholder="usuario@correo.ext-para enviarte la información" value="">
 					</div>
 
 					<div class="md:col-span-1">
@@ -957,7 +957,8 @@ if (strpos($host, 'web-staging') !== false) {
 					<h3 class="font-heading text-2xl text-gray-800 text-center">¡Gracias, <span id="success-user-name"></span>!
 					</h3>
 					<p class="font-body text-gray-700 text-center mt-4">Se envió un correo a la dirección
-						<strong>contacto@lummaclub.com</strong>.</p>
+						<strong>contacto@lummaclub.com</strong>.
+					</p>
 					<p class="font-body text-gray-700">Qué alegría recibir tu mensaje. Antes que nada, queremos darte las gracias por tu
 						interés y por dar el primer paso para conectar con <strong>LUMMA <span class="text-dorado">CLUB</span></strong>.</p>
 					<p class="font-body text-gray-700">Hemos recibido tu solicitud y ya está en mis manos y pronto me pondre en contacto
@@ -1110,7 +1111,10 @@ if (strpos($host, 'web-staging') !== false) {
 				}
 
 				// Scroll suave hacia los resultados
-				surveyResults.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				surveyResults.scrollIntoView({
+					behavior: 'smooth',
+					block: 'center'
+				});
 			});
 
 			// --- Lógica del Formulario de Contacto ---
@@ -1139,7 +1143,10 @@ if (strpos($host, 'web-staging') !== false) {
 
 				formSuccessMessage.classList.remove('hidden');
 				formSuccessMessage.style.display = 'block';
-				formSuccessMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				formSuccessMessage.scrollIntoView({
+					behavior: 'smooth',
+					block: 'center'
+				});
 			});
 
 			policyCheckbox2.addEventListener('change', () => {
