@@ -20,7 +20,7 @@ if (strpos($host, 'web-staging') !== false) {
     define('APP_URL_CONTACT_FORM', 'https://app.lummaclub.com');
 
 }
-
+/
 
 ?>
 <!DOCTYPE html>
