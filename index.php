@@ -1,6 +1,5 @@
 <?php
 
-
 // Detectar el dominio actual
 $host = $_SERVER['HTTP_HOST']; // Devuelve "lummaclub.com", "web-staging.lummaclub.com" o "localhost"
 
@@ -16,9 +15,9 @@ if (strpos($host, 'web-staging') !== false) {
 	// Caso 3: Por defecto asumimos PRODUCCIÓN (lummaclub.com)
 	define('APP_URL_CONTACT_FORM', 'https://app.lummaclub.com');
 }
-/
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
