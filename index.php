@@ -910,13 +910,12 @@ if (strpos($host, 'web-staging') !== false) {
 						<label for="email" class="font-body font-semibold text-sm text-gray-700 block mb-2">Email
 							Corporativo/particular</label>
 						<input type="email" id="email" name="email" required class="form-input w-full"
-							placeholder="Para enviarte la información" value="carlos@gmail.com">
+							placeholder="Para enviarte la información" value="usuario@correo.ext">
 					</div>
 
 					<div class="md:col-span-1">
 						<label for="empresa" class="font-body font-semibold text-sm text-gray-700 block mb-2">Empresa</label>
-						<input type="text" id="empresa" name="empresa" class="form-input w-full"
-							placeholder="Nombre de tu compañía o particular">
+						<input type="text" id="empresa" name="empresa" class="form-input w-full" placeholder="Nombre de tu compañía o particular">
 					</div>
 
 					<div class="md:col-span-1">
@@ -1023,7 +1022,7 @@ if (strpos($host, 'web-staging') !== false) {
 						<li><a href="politica-de-datos.html" class="hover:text-dorado transition-colors" target="_blank">Política de
 								privacidad</a></li>
 						<li><a href="#" class="hover:text-dorado transition-colors">Términos de servicio</a></li>
-						<li><a href="#" class="hover:text-dorado transition-colors">PQRS</a></li>
+						<!-- <li><a href="#" class="hover:text-dorado transition-colors">PQRS</a></li> -->
 					</ul>
 				</div>
 			</div>
