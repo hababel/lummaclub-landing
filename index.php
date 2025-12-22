@@ -1,3 +1,28 @@
+<?php
+	
+	
+// Detectar el dominio actual
+$host = $_SERVER['HTTP_HOST']; // Devuelve "lummaclub.com", "web-staging.lummaclub.com" o "localhost"
+
+// Lógica de decisión
+if (strpos($host, 'web-staging') !== false) {
+    // Caso 1: Estamos en el subdominio de PRUEBAS
+    define('APP_URL_CONTACT_FORM', 'https://app-staging.lummaclub.com');
+
+} elseif (strpos($host, 'localhost') !== false || strpos($host, '127.0.0.1') !== false) {
+    // Caso 2: Estamos en LOCAL (tu PC)
+    // Ajusta esto a tu URL local real si es diferente
+    define('APP_URL_CONTACT_FORM', 'http://localhost/imcac'); 
+
+
+} else {
+    // Caso 3: Por defecto asumimos PRODUCCIÓN (lummaclub.com)
+    define('APP_URL_CONTACT_FORM', 'https://app.lummaclub.com');
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
@@ -191,7 +216,7 @@
 			border-radius: 6px;
 			transition: all 0.3s ease;
 			display: inline-block;
-			text-align: center; 
+			text-align: center;
 			box-shadow: 0 4px 20px -5px rgba(233, 169, 59, 0.5);
 		}
 
@@ -211,8 +236,8 @@
 			padding: 0.8rem 2.2rem;
 			border-radius: 6px;
 			transition: all 0.3s ease;
-			display: block; 
-			text-align: center; 
+			display: block;
+			text-align: center;
 			box-shadow: 0 4px 20px -5px rgba(26, 26, 26, 0.3);
 		}
 
@@ -275,59 +300,71 @@
 		}
 
 
-/* Ajuste para anclas de navegación con header fijo */
+		/* Ajuste para anclas de navegación con header fijo */
 		section[id] {
 			scroll-margin-top: 120px;
 			/* Ajusta este valor según la altura de tu header */
 		}
 
-	/* ==== INICIO: AJUSTES PARA MÓVIL (CORREGIDO) ==== */
-		@media (max-width: 767px) { /* Se aplica a pantallas más pequeñas que 'md' (768px) */
-			
+	
+		/* ==== INICIO: AJUSTES PARA MÓVIL (OPTIMIZADO) ==== */
+		@media (max-width: 767px) {
+			/* Se aplica a pantallas más pequeñas que 'md' (768px) */
+
 			/* 1. Centrar el logo en el header */
 			#navbar nav {
-				position: relative; /* Necesario para posicionar el botón hamburguesa */
-				
+				position: relative;
 			}
 
 			/* 2. Reposicionar el menú hamburguesa AL EXTREMO DERECHO */
-			header#navbar nav div.md\\:hidden { /* Selector más específico */
-				position: absolute !important; /* Saca el botón del flujo normal */
+			header#navbar nav div.md\\:hidden {
+				position: absolute !important;
 				top: 50%;
-				right: 1.5rem; /* Corresponde al 'px-6' del nav */
-				transform: translateY(-50%); /* Centra verticalmente el botón */
+				right: 1.5rem;
+				transform: translateY(-50%);
 			}
 
 			/* 3. Ajustar el tamaño del logo en móvil */
 			#navbar:not(.scrolled) nav a img {
-				height: 4.5rem !important; /* h-18. Anula el h-24 */
-			}
-			
-			/* 4. Ajustar el tamaño del logo al hacer scroll */
-			/* Este ya está correcto y no necesita !important si el de arriba es más específico */
-			#navbar.scrolled nav a img {
-				height: 3rem !important; /* h-12. Mantiene la consistencia */
+				height: 3.5rem !important; /* Reducido de 4.5rem para ganar espacio vertical */
 			}
 
-			/* 5. Empujar el contenido "Hero" (subtítulo) hacia abajo */
+			#navbar.scrolled nav a img {
+				height: 3rem !important;
+			}
+
+			/* 4. Ajustar el padding del Hero para subir el contenido */
 			#hero-content {
-				padding-top: 10rem !important; 
+				/* Antes era 10rem. Lo bajamos a 7rem para que suba todo el bloque */
+				padding-top: 7rem !important; 
 				padding-bottom: 2rem !important;
 			}
 
-			/* 6. Ajustar el botón "Comience su Transformación" en móvil */
+			/* 5. Acercar el botón al texto */
 			#hero-content .cta-button {
-				margin-top: 4rem !important; /* Reduce el 'mt-32' original */
+				/* Antes era 4rem. Lo bajamos a 2rem para pegar más el botón al texto */
+				margin-top: 2rem !important; 
 			}
 
-			/* 7. Poner el fondo del menú desplegable NEGRO OPACO */
+			/* 6. Fondo del menú móvil */
 			#mobile-menu {
-				background-color: var(--fondo-principal) !important; /* Usa el color #1a1a1a */
-				backdrop-filter: none !important; /* Quita el efecto 'blur' */
+				background-color: var(--fondo-principal) !important;
+				backdrop-filter: none !important;
 			}
 
-			
-		}
+			.txt_trasformacion_seccion_hero {
+				font-size: 1.05rem !important; /* Ajusta el tamaño según sea necesario */}
+			}
+
+			.btn_seccion_hero{
+				font-size: 0.938rem !important; /* Ajusta el tamaño según sea necesario */
+			}
+
+			.title_seccion_hero{
+				font-size: 2.25rem !important; /* Ajusta el tamaño según sea necesario */
+			}
+
+
 		/* ==== FIN: AJUSTES PARA MÓVIL ==== */
 
 	</style>
@@ -353,6 +390,9 @@
 				<a href="#solucion"
 					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">Método
 					IMCAC 360°</a>
+				<a href="#alcance"
+					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">El
+					Alcance</a>
 				<a href="#mini-imcac"
 					class="font-heading text-sm tracking-wide text-gray-300 hover:text-dorado transition-colors duration-200">Diagnóstico
 					Rápido</a>
@@ -372,15 +412,21 @@
 
 		<!-- Menú Desplegable Móvil -->
 		<div id="mobile-menu" class="hidden md:hidden bg-fondo-principal/95 backdrop-blur-sm shadow-lg">
-			<a href="#inicio" class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">El inicio</a>
+			<a href="#inicio"
+				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">El
+				inicio</a>
 			<a href="#problema"
 				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">El
 				reto</a>
 			<a href="#solucion"
 				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">Método
 				IMCAC 360°</a>
+			<a href="#alcance"
+				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">El
+				Alcance</a>
 			<a href="#mini-imcac"
-				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">Mini diagnóstico</a>
+				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200 border-b border-gray-700">Mini
+				diagnóstico</a>
 			<a href="#contacto"
 				class="block text-center font-heading text-base py-3 px-6 text-gray-200 hover:text-dorado transition-colors duration-200">Contacto</a>
 		</div>
@@ -390,32 +436,29 @@
 
 		<!-- ==== SECCIÓN HERO / INICIO ==== -->
 		<section id="inicio"
-			class="relative flex items-center justify-center h-screen text-center text-white overflow-hidden">
-			<!-- Video de Fondo -->
-			<video class="h-screen" id="hero-video" autoplay loop muted playsinline
+			class="relative flex items-center justify-center min-h-screen text-center text-white overflow-hidden">
+			<video class="absolute top-0 left-0 w-full h-full object-cover z-0" id="hero-video" autoplay loop muted playsinline
 				poster="https://placehold.co/1920x1080/1a1a1a/cccccc?text=LUMMA+CLUB+Video">
 				<source src="img/video_principal_imcac.mp4" type="video/mp4">
 				Tu navegador no soporta el tag de video.
 			</video>
 
-			<!-- Contenido Sobrepuesto de inicio -->
-			<div id="hero-content" style="padding-bottom: 8px;"
-				class="relative z-10 flex flex-col items-center justify-center w-full h-full p-6 px-4 sm:px-6 lg:px-8 pt-32 md:pt-48">
+			<div id="hero-content"
+				class="relative z-10 flex flex-col items-center justify-center w-full h-full p-6 px-4 sm:px-6 lg:px-8 pt-32 md:pt-48 pb-16">
 
-				<span class="font-heading text-m text-dorado tracking-widest uppercase mb-4 pt-3">
-					TRANSFORMACIÓN CULTURAL, TRAZABILIDAD DOCUMENTAL Y COMUNICACION ASINCRÓNICA
+				<span class="font-heading text-m text-dorado tracking-widest mb-4 pt-3" id="txt_trasformacion_seccion_hero">
+					Transformación cultural, trazabilidad coumental y comunicación asincrónica
 				</span>
 
-				<h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+				<h1 class="font-heading text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight" id="title_seccion_hero">
 					SU EMPRESA MERECE <span class="text-dorado block mt-2 sm:inline-block">CLARIDAD OPERATIVA</span>
 				</h1>
 				<p class="font-body text-lg md:text-2xl mt-6 max-w-4xl text-gray-300 leading-relaxed">
 					En LUMMA CLUB, transformamos el caos comunicativo en eficiencia, trazabilidad y autonomía digital.
 					Prepárese para auditorías documentales y de trazabilidad.
 				</p>
-				<a href="#contacto" class="cta-button mt-32">
-					Comience su Transformación Hoy
-				</a>
+
+				<a href="#contacto" class="cta-button mt-16 md:mt-32" id="btn_seccion_hero"> Comience su Transformación Hoy	</a>
 			</div>
 
 		</section>
@@ -539,7 +582,8 @@
 					<p>
 						No es solo una consultoría, es una <strong style="font-style: italic;">transformación cultural
 							completa.</strong>
-						<br><br>Implementamos el <strong>Indicador de Madurez de Comunicación Asincrónica y Colaborativa (IMCAC 360°) -
+						<br><br>Implementamos el <strong>Indicador de Madurez de Comunicación Asincrónica y Colaborativa (IMCAC
+							360°) -
 							herramienta de LUMMA
 							<span class="text-dorado [text-shadow:1px_1px_2px_rgba(0,0,0,0.2)]">CLUB</span></strong>, que
 						permite diagnosticar con precisión el punto de partida, identificar brechas reales en la colaboración y
@@ -550,7 +594,8 @@
 					</p>
 					<br>
 					<p>
-						Con <strong>IMCAC 360°</strong>, su empresa no solo adopta nuevas herramientas, sino que <strong>evoluciona su cultura
+						Con <strong>IMCAC 360°</strong>, su empresa no solo adopta nuevas herramientas, sino que <strong>evoluciona
+							su cultura
 							organizacional</strong>
 						hacia una comunicación más clara, eficiente y trazable, preparada para acelerar la opercion y por ende mas
 						eficiente.
@@ -638,6 +683,92 @@
 			</div>
 		</section>
 
+		<!-- ==== SECCIÓN TRANSPARENCIA Y ALCANCE ==== -->
+		<section id="alcance" class="py-8 md:py-10 bg-fondo-principal border-t border-gray-800">
+			<div class="container mx-auto max-w-7xl px-6">
+			<!-- Línea divisoria sutil -->
+			<hr class="w-24 mx-auto border-dorado mb-8">
+				<div class="grid lg:grid-cols-2 gap-16 items-center">
+					<div>
+						<span class="font-heading text-sm text-dorado tracking-widest uppercase">TRANSPARENCIA Y ALCANCE</span>
+						<h2 class="font-heading text-3xl md:text-4xl mt-4 leading-tight text-white">
+							Distinciones <span class="italic text-gray-400">Importantes</span>
+						</h2>
+						<p class="font-body text-lg mt-6 text-gray-300 leading-relaxed">
+							En LUMMA CLUB valoramos la precisión. Por ello, es fundamental aclarar que <strong>IMCAC 360°</strong> no
+							sustituye, ni pretende ser:
+						</p>
+
+						<div class="mt-8 space-y-4">
+							<div class="flex items-start p-4 bg-gray-900/50 border border-gray-700 rounded-lg">
+								<svg class="w-6 h-6 text-gray-500 mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+								</svg>
+								<p class="font-body text-gray-400 text-sm">
+									<strong class="text-white">No es una certificación ISO</strong> (9001, 27001, etc.) ni otorga un sello de
+									calidad avalado por entes internacionales de estandarización.
+								</p>
+							</div>
+							<div class="flex items-start p-4 bg-gray-900/50 border border-gray-700 rounded-lg">
+								<svg class="w-6 h-6 text-gray-500 mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+									stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+								</svg>
+								<p class="font-body text-gray-400 text-sm">
+									<strong class="text-white">No es una certificación de Gestión Documental</strong> normativa (Archivo
+									General de la Nación) ni de cumplimiento legal SG-SST.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="relative">
+						<div class="absolute -inset-4 border border-dorado/20 rounded-xl -z-10 translate-x-2 translate-y-2"></div>
+
+						<div class="bg-gray-800 p-8 md:p-10 rounded-xl shadow-2xl">
+							<h3 class="font-heading text-2xl text-white mb-6">Entonces, ¿Qué es IMCAC 360°?</h3>
+							<p class="font-body text-gray-300 mb-6">
+								Es un <strong>Método de Claridad Operativa</strong>. Una intervención cultural y técnica diseñada para que
+								su empresa funcione mejor, con o sin sellos externos.
+							</p>
+
+							<ul class="space-y-4">
+								<li class="flex items-start">
+									<span class="text-dorado mr-3 text-xl">✦</span>
+									<span class="font-body text-gray-200 text-sm"><strong>Indicador de Madurez:</strong> Medimos su realidad
+										comunicativa actual frente a un estándar de eficiencia.</span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-dorado mr-3 text-xl">✦</span>
+									<span class="font-body text-gray-200 text-sm"><strong>Capacitación Asincrónica:</strong> Enseñamos a
+										comunicar con intención, reduciendo el ruido digital.</span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-dorado mr-3 text-xl">✦</span>
+									<span class="font-body text-gray-200 text-sm"><strong>Estructura y Tecnología:</strong> Definimos la
+										arquitectura de carpetas y el uso correcto de M365/Google.</span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-dorado mr-3 text-xl">✦</span>
+									<span class="font-body text-gray-200 text-sm"><strong>Reglas de Juego:</strong> Documentamos políticas
+										claras de creación, nombrado y ubicación de archivos.</span>
+								</li>
+								<li class="flex items-start">
+									<span class="text-dorado mr-3 text-xl">✦</span>
+									<span class="font-body text-gray-200 text-sm"><strong>Mejora Continua:</strong> Realizamos auditorías,
+										ajustes y volvemos a medir para garantizar la autonomía.</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
 		<!-- ==== SECCIÓN MINI-ENCUESTA IMCAC  ==== -->
 		<section id="mini-imcac" class="py-8 md:py-10">
 			<div class="container mx-auto max-w-4xl px-6 text-center">
@@ -649,22 +780,26 @@
 				<p class="font-body text-lg max-w-2xl mx-auto mt-6 text-gray-400">
 					Este mini cuestionario es una pequeña probada para que conozca de forma
 					rápida cómo está la comunicación asincrónica en su organización. Son solo 4 preguntas que ofrecen una vista
-					parcial, muy distinta al diagnóstico profundo y detallado que obtendrá al aplicar el IMCAC 360° completo. Sea honesto para un diagnóstico preciso.
+					parcial, muy distinta al diagnóstico profundo y detallado que obtendrá al aplicar el IMCAC 360° completo. Sea
+					honesto para un diagnóstico preciso.
 				</p>
 
 				<div id="survey-form" class="mt-16 space-y-8 text-left">
 					<!-- Pregunta 1 -->
 					<fieldset>
 						<div class="survey-question p-6 rounded-xl shadow-xl">
-							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">1. ¿Podría conocer hoy las tareas de su
+							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">1. ¿Podría conocer hoy las tareas de
+								su
 								equipo (de cada responsable) sin hacer una reunión o revisar correos/WhatsApp?</legend>
 							<div class="flex flex-col sm:flex-row gap-4 mt-4">
 								<input type="radio" name="q1" id="q1-si" value="si" class="hidden">
-								<label for="q1-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí, sin
+								<label for="q1-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí,
+									sin
 									problema</label>
 
 								<input type="radio" name="q1" id="q1-no" value="no" class="hidden">
-								<label for="q1-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No, es un
+								<label for="q1-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No,
+									es un
 									caos</label>
 							</div>
 						</div>
@@ -674,10 +809,12 @@
 					<fieldset>
 						<div class="survey-question p-6 rounded-xl shadow-xl">
 							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">2. Si un colaborador clave falta, ¿su
-								reemplazo podría continuar su trabajo sin una reunión de empalme o entrega personal de archivos?</legend>
+								reemplazo podría continuar su trabajo sin una reunión de empalme o entrega personal de archivos?
+							</legend>
 							<div class="flex flex-col sm:flex-row gap-4 mt-4">
 								<input type="radio" name="q2" id="q2-si" value="si" class="hidden">
-								<label for="q2-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí, la
+								<label for="q2-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí,
+									la
 									información está accesible</label>
 
 								<input type="radio" name="q2" id="q2-no" value="no" class="hidden">
@@ -690,30 +827,37 @@
 					<!-- Pregunta 3 -->
 					<fieldset>
 						<div class="survey-question p-6 rounded-xl shadow-xl">
-							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">3. ¿Cualquier miembro del equipo podría
+							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">3. ¿Cualquier miembro del equipo
+								podría
 								retomar una tarea pausada de otro colaborador hace dos semanas sin tener que preguntarle?</legend>
 							<div class="flex flex-col sm:flex-row gap-4 mt-4">
 								<input type="radio" name="q3" id="q3-si" value="si" class="hidden">
-								<label for="q3-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí, todo
+								<label for="q3-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí,
+									todo
 									está documentado</label>
 
 								<input type="radio" name="q3" id="q3-no" value="no" class="hidden">
-								<label for="q3-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No, la
-									información no es clara</label>							</div>
+								<label for="q3-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No,
+									la
+									información no es clara</label>
+							</div>
 						</div>
 					</fieldset>
 
 					<!-- Pregunta 4 -->
 					<fieldset>
 						<div class="survey-question p-6 rounded-xl shadow-xl">
-							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">4. ¿Existen lineamientos claros que definan cómo organizar, compartir y ubicar la información, de modo que cualquier miembro del equipo pueda encontrar fácilmente lo que necesita sin pregunarle a nadie más?</legend>
+							<legend class="font-heading text-lg text-white mb-4 leading-relaxed">4. ¿Existen lineamientos claros que
+								definan cómo organizar, compartir y ubicar la información, de modo que cualquier miembro del equipo
+								pueda encontrar fácilmente lo que necesita sin pregunarle a nadie más?</legend>
 							<div class="flex flex-col sm:flex-row gap-4 mt-4">
 								<input type="radio" name="q4" id="q4-si" value="si" class="hidden">
 								<label for="q4-si" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😎 Sí,
 									tenemos normas establecidas</label>
 
 								<input type="radio" name="q4" id="q4-no" value="no" class="hidden">
-								<label for="q4-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No, cada
+								<label for="q4-no" class="radio-label w-full sm:w-1/2 text-center p-3 rounded-lg cursor-pointer">😥 No,
+									cada
 									uno guarda como quiere</label>
 							</div>
 						</div>
@@ -749,37 +893,42 @@
 					</h2>
 					<p class="font-body text-lg mt-6 text-gray-700 leading-relaxed">
 						Organice su información, recupere la trazabilidad y fortalezca la colaboración en su empresa.
-						Un consultor de <strong>LUMMA <span class="text-dorado">CLUB</span></strong> lo acompañará paso a paso para comprender sus necesidades y construir juntos una mejor forma
+						Un consultor de <strong>LUMMA <span class="text-dorado">CLUB</span></strong> lo acompañará paso a paso para
+						comprender sus necesidades y construir juntos una mejor forma
 						de trabajar.
 					</p>
 				</div>
 
-				<form id="contact-form" class="max-w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+				<form id="frm_contacto" class="max-w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div class="md:col-span-1">
 						<label for="nombre" class="font-body font-semibold text-sm text-gray-700 block mb-2">Nombre Completo</label>
-						<input type="text" id="nombre" name="nombre" required class="form-input w-full" placeholder="Ej: Carlos Méndez">
+						<input type="text" id="nombre" name="nombre" required class="form-input w-full"
+							placeholder="Ej: Carlos Méndez">
 					</div>
 
 					<div class="md:col-span-1">
 						<label for="email" class="font-body font-semibold text-sm text-gray-700 block mb-2">Email
 							Corporativo/particular</label>
-						<input type="email" id="email" name="email" required class="form-input w-full" placeholder="Para enviarte la información">
+						<input type="email" id="email" name="email" required class="form-input w-full"
+							placeholder="Para enviarte la información" value="usuario@correo.ext">
 					</div>
 
 					<div class="md:col-span-1">
 						<label for="empresa" class="font-body font-semibold text-sm text-gray-700 block mb-2">Empresa</label>
-						<input type="text" id="empresa" name="empresa"  class="form-input w-full" placeholder="Nombre de tu compañía o particular">
+						<input type="text" id="empresa" name="empresa" class="form-input w-full" placeholder="Nombre de tu compañía o particular">
 					</div>
 
 					<div class="md:col-span-1">
 						<label for="whatsapp" class="font-body font-semibold text-sm text-gray-700 block mb-2">WhatsApp</label>
-						<input type="tel" id="whatsapp" name="whatsapp" class="form-input w-full" placeholder="Para comunicarnos contigo">
+						<input type="tel" id="whatsapp" name="whatsapp" class="form-input w-full"
+							placeholder="Para comunicarnos contigo">
 					</div>
 
 					<div class="md:col-span-2">
 						<label for="mensaje" class="font-body font-semibold text-sm text-gray-700 block mb-2">¿Cuál es su principal
 							desafío de comunicación/trazabilidad?</label>
-						<textarea id="mensaje" name="mensaje" rows="5" class="form-input w-full" placeholder="Ej: 'Perdemos mucho tiempo buscando evidencia para auditorías...'"></textarea>
+						<textarea id="mensaje" name="mensaje" rows="5" class="form-input w-full"
+							placeholder="Ej: 'Perdemos mucho tiempo buscando evidencia para auditorías...'"></textarea>
 					</div>
 
 					<div class="md:col-span-2 flex items-start space-x-3">
@@ -787,7 +936,8 @@
 							class="mt-1 h-4 w-4 rounded border-gray-400 text-dorado focus:ring-dorado cursor-pointer">
 						<div>
 							<label for="data-policy-2" class="font-body text-sm text-gray-600">
-								Acepto que he leído y entiendo la <a href="politica-de-datos.html" class="text-dorado hover:underline" target="_blank">Política de
+								Acepto que he leído y entiendo la <a href="politica-de-datos.html" class="text-dorado hover:underline"
+									target="_blank">Política de
 									Tratamiento de Datos</a> y autorizo el uso de mis datos para las finalidades allí descritas.
 							</label>
 						</div>
@@ -801,12 +951,23 @@
 					</div>
 				</form>
 
-				<!-- Mensaje de confirmación -->
+				<!-- Mensaje de confirmación de envio de formulario de contacto-->
 				<div id="form-success"
 					class="hidden max-w-xl mx-auto mt-8 p-8 text-left bg-green-50 border border-green-300 rounded-lg space-y-4">
-					<!-- El contenido se generará con JavaScript -->
+					<h3 class="font-heading text-2xl text-gray-800 text-center">¡Gracias, <span id="success-user-name"></span>!
+					</h3>
+					<p class="font-body text-gray-700 text-center mt-4">Se envió un correo a la dirección
+						<strong>contacto@lummaclub.com</strong>.</p>
+					<p class="font-body text-gray-700">Qué alegría recibir tu mensaje. Antes que nada, queremos darte las gracias por tu
+						interés y por dar el primer paso para conectar con <strong>LUMMA <span class="text-dorado">CLUB</span></strong>.</p>
+					<p class="font-body text-gray-700">Hemos recibido tu solicitud y ya está en mis manos y pronto me pondre en contacto
+						contigo.</p>
+					<p class="font-body text-gray-700">Agradecemos mucho tu paciencia. Si no recibes respuesta de inmediato, es que nos tomamos el tiempo necesario para revisar cada caso con la atención y detalle que merece, asegurando así una respuesta personalizada para ti.</p>
+					<p class="font-body text-dorado font-semibold text-center pt-6 text-xl">Estás dando un paso importante para la
+						claridad comunicativa y esto será grande.</p>
+					<p class="font-body text-gray-700 font-semibold text-center pt-4">¡Hablamos en breve!</p>
+					<p class="font-body text-gray-600 text-center">Un cordial saludo,<br><strong>Aníbal Benítez A.</strong><br>El equipo de <strong>LUMMA <span class="text-dorado">CLUB</span></strong>.</p>
 				</div>
-
 			</div>
 		</section>
 
@@ -823,7 +984,8 @@
 						<img src="img/logo_lummaclub_2.png" alt="LUMMA CLUB Logo" class="h-20 mb-2">
 					</a>
 					<p class="font-body text-sm text-center md:text-left">
-						Transformamos el caos comunicativo en claridad operativa, garantizando trazabilidad y eficiencia para su empresa.
+						Transformamos el caos comunicativo en claridad operativa, garantizando trazabilidad y eficiencia para su
+						empresa.
 					</p>
 				</div>
 
@@ -833,8 +995,10 @@
 					<ul class="mt-4 space-y-2">
 						<li><a href="#inicio" class="hover:text-dorado transition-colors">El inicio</a></li>
 						<li><a href="#problema" class="hover:text-dorado transition-colors">El reto</a></li>
-						<li><a href="#solucion" class="hover:text-dorado transition-colors">Método <strong>IMCAC 360°</strong></a></li>
-						<li><a href="#mini-imcac" class="hover:text-dorado transition-colors">Mini diagnóstico</a></li>
+						<li><a href="#solucion" class="hover:text-dorado transition-colors">Método <strong>IMCAC 360°</strong></a>
+						</li>
+						<li><a href="#alcance" class="hover:text-dorado transition-colors">El alcance</a></li>
+						<li><a href="#mini-imcac" class="hover:text-dorado transition-colors">Diagnóstico rápido</a></li>
 						<li><a href="#contacto" class="hover:text-dorado transition-colors">Contacto</a></li>
 					</ul>
 				</div>
@@ -845,7 +1009,9 @@
 					<ul class="mt-4 space-y-2">
 						<li><a href="mailto:contacto@lummaclub.com"
 								class="hover:text-dorado transition-colors">contacto@lummaclub.com</a></li>
-						<li><p>Medellín, Colombia</p></li>
+						<li>
+							<p>Medellín, Colombia</p>
+						</li>
 					</ul>
 				</div>
 
@@ -853,9 +1019,10 @@
 				<div>
 					<h3 class="font-heading text-base font-semibold text-white tracking-wider">Legal</h3>
 					<ul class="mt-4 space-y-2">
-						<li><a href="politica-de-datos.html" class="hover:text-dorado transition-colors" target="_blank">Política de privacidad</a></li>
+						<li><a href="politica-de-datos.html" class="hover:text-dorado transition-colors" target="_blank">Política de
+								privacidad</a></li>
 						<li><a href="#" class="hover:text-dorado transition-colors">Términos de servicio</a></li>
-						<li><a href="#" class="hover:text-dorado transition-colors">PQRS</a></li>
+						<!-- <li><a href="#" class="hover:text-dorado transition-colors">PQRS</a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -947,7 +1114,7 @@
 			});
 
 			// --- Lógica del Formulario de Contacto ---
-			const contactForm = document.getElementById('contact-form');
+			const contactForm = document.getElementById('frm_contacto');
 			const formSuccessMessage = document.getElementById('form-success');
 			const policyCheckbox2 = document.getElementById('data-policy-2');
 			const submitButton2 = document.getElementById('contact-submit-button-2');
@@ -956,18 +1123,19 @@
 				e.preventDefault();
 
 				const nombreUsuario = document.getElementById('nombre').value.split(' ')[0];
+				const formData = new FormData(contactForm);
 
 				// Simulación de éxito para demostración
+				// Enviar datos al backend (PHP)
+				fetch('<?= APP_URL_CONTACT_FORM ?>/landing/contact', {
+					method: 'POST',
+					body: formData
+				}).catch(error => console.error('Error al enviar:', error));
+
+				// Ocultar formulario y mostrar mensaje
 				contactForm.classList.add('hidden');
 
-				formSuccessMessage.innerHTML = `
-					<h3 class="font-heading text-2xl text-gray-800 text-center">¡Hola, ${nombreUsuario}!</h3>
-					<p class="font-body text-gray-700">Qué alegría recibir tu mensaje. Antes que nada, queremos darte las gracias por tu interés y por dar el primer paso para conectar con LUMMA CLUB.</p>
-					<p class="font-body text-gray-700">Hemos recibido tu solicitud y ya está en manos de uno de nuestros especialistas, quien se pondrá en contacto contigo muy pronto.</p>
-					<p class="font-body text-gray-700">Estamos aquí para ayudarte en lo que necesites.</p>
-					<p class="font-body text-gray-700 font-semibold text-center pt-4">¡Hablamos en breve!</p>
-					<p class="font-body text-gray-600 text-center">Un cordial saludo,<br>El equipo de LUMMA CLUB</p>
-				`;
+				document.getElementById('success-user-name').textContent = nombreUsuario;
 
 				formSuccessMessage.classList.remove('hidden');
 				formSuccessMessage.style.display = 'block';
