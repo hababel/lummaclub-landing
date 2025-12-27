@@ -27,16 +27,19 @@ if (strpos($host, 'web-staging') !== false) {
 
 	<!-- Metaetiquetas SEO -->
 	<title>LUMMA CLUB | Transformación digital, trazabilidad documental y comunicación asincrónica</title>
+
+	<link rel="canonical" href="https://www.lummaclub.com/" />
+
 	<meta name="description"
-		content="LUMMA CLUB es su socio estratégico para la transformación cultural digital. Implementamos el Método IMCAC 360° para optimizar Microsoft 365, garantizar la trazabilidad documental, auditoría y eliminar el caos comunicativo en PYMES y evite no conformidades en auditorías.">
+		content="LUMMA CLUB es su socio estratégico para la transformación cultural digital. Logre tranquilidad documental y búsquedas exactas con el Método IMCAC 360°, garantizar la trazabilidad documental, auditoría y eliminar el caos comunicativo en PYMES y evite no conformidades en auditorías. ¿Caos con sus archivos? Transformamos su desorden digital en un sistema trazable y listo para auditorías y busquedas. Consultoia para empresas en Medellín y Colombia.">
 	<meta name="keywords"
-		content="LUMMA CLUB, IMCAC 360°, comunicación asincrónica profesional, transformación cultural digital, trazabilidad documental, evidencia, optimización de procesos de comunicación, eliminar caos digital, pérdida de evidencia auditoría, no conformidades gestión documental, problemas auditoría ISO 27001, optimizar Microsoft 365 para pymes, consultoría trazabilidad documental, problemas comunicación interna pymes, caos comunicación interna, mejorar colaboración equipos remotos">
+		content="LUMMA CLUB, IMCAC 360°, comunicación asincrónica profesional, transformación cultural digital, trazabilidad documental, evidencia, optimización de procesos de comunicación, eliminar caos digital, pérdida de evidencia auditoría, no conformidades gestión documental, problemas auditoría ISO 27001, optimizar Microsoft 365 para pymes, consultoría trazabilidad documental, problemas comunicación interna pymes, caos comunicación interna, mejorar colaboración equipos remotos, organizacion de archivos empresa,trazabilidad documental, organizar archivos empresa, consultoria transformación digital pymes,digitalización organizada de documentos medellin, orden digital">
 	<meta name="author" content="LUMMA CLUB">
 
 	<!-- Open Graph (para redes sociales) -->
 	<meta property="og:title" content="LUMMA CLUB | Liderando la Transformación Digital de su Empresa">
 	<meta property="og:description"
-		content="Descubra cómo LUMMA CLUB, con el método IMCAC 360°, optimiza su comunicación transformamos su caos en Microsoft 365 en evidencia lista para auditorías.">
+		content="Elimine el caos de archivos y correos. Descubra cómo organizar su empresa con las herramientas que ya paga (Microsoft 365).">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://www.lummaclub.com"> <!-- Asume una URL, cámbiala si es necesario -->
 	<meta property="og:image" content="https://raw.githubusercontent.com/LumaClub/brand-assets/main/logo-lumma-club.svg">
@@ -373,7 +376,10 @@ if (strpos($host, 'web-staging') !== false) {
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-14RHVX8R1Q"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
 		gtag('js', new Date());
 
 		gtag('config', 'G-14RHVX8R1Q');
